@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>부잇! - 마이페이지</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>앱 설정</h1>
+        </div>
+        <div></div>
+      </nav>
+    </header>
+    
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey">
+      <div class="mypage h-100">
+        <section class="mypage-section justify-content-between">
+          <div class="">
+            <h2 class="title-card">채팅 알림</h2>
+            <span>메세지가 왔을 떄 알림이 설정됩니다</span>
+          </div>
+          <div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1">
+              <label class="custom-control-label" for="customSwitch1"></label>
+            </div>
+          </div>
+        </section>
+        <section class="mypage-section no-pd">
+          <ul class="mypage-section-nav">
+            <li>
+              <a href="#" onclick="logout();">
+                <span>로그아웃</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+        <section class="mypage-section no-pd">
+          <ul class="mypage-section-nav">
+            <li>
+              <a href="#" onclick="secession();">
+                <span>탈퇴하기</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    function secession() {
+      swal({
+        title: "탈퇴하기",
+        text: "정마 탈퇴하시겠어요?",
+        cancelButtonText: '취소',
+        confirmButtonText: '탈퇴하기',
+        confirmButtonColor: '#ff0000',
+        // newer version
+        cancel: {
+          text: "취소",
+          value: null,
+          visible: false,
+          className: "",
+          closeModal: true,
+        },
+      });
+    }
+
+    function logout() {
+      swal({
+        title: "로그아웃",
+        text: "로그아웃 하시겠어요?",
+        cancelButtonText: '취소',
+        confirmButtonText: '로그아웃',
+        confirmButtonColor: '#ff0000',
+        // newer version
+        cancel: {
+          text: "취소",
+          value: null,
+          visible: false,
+          className: "",
+          closeModal: true,
+        },
+      });
+    }
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

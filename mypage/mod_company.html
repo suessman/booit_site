@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 정보수정</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>프로필 수정</h1>
+        </div>
+        <div></div>
+      </nav>
+    </header>
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey">
+
+      <section class="container mt-4">
+        <article class="d-flex justify-content-center">
+          <div class="userthumb">
+            <img src="/images/demo_profile.jpg" alt="프로필이미지">
+            <button class="userthumb-photo icon icon-camera_grey">
+              <span hidden>사진업로드</span>
+            </button>
+          </div>
+        </article>
+
+        <section class="mt-4">
+          <div class="form-group">
+            <select class="form-control">
+              <option value="">유형선택</option>
+              <option value="">개업공인중개사</option>
+              <option value="">소속공인중개사</option>
+              <option value="">중개보조원</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="no" placeholder="등록번호">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="coname" placeholder="상호명 (공인중개사 회원 입력)">
+          </div>
+          <!-- 소속 및 중개보조원 선택시 -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="ceoname" placeholder="공인중개사 성명">
+          </div>
+          <!-- 보조원 -->
+          <div class="form-group">
+            <input type="text" class="form-control" id="ceoname" placeholder="중개보조원 선명">
+          </div>
+          <div class="form-group position-relative">
+            <input type="tel" class="form-control" id="phone" placeholder="전화번호">
+            <button type="button" class="btn-text btn-text-in" onclick="auth()">인증하기</button>
+          </div>
+          <div class="row">
+            <div class="col-11 pr-0">
+              <div class="form-group mr-3 mb-3">
+                <label for="addr" class="sr-only">주소</label>
+                <input type="text" class="form-control" id="addr" placeholder="주소등록">
+              </div>
+            </div>
+            <div class="col-5 pl-0">
+              <button type="button" class="btn btn-mildgrey btn-lg mb-3" onclick="modal()">도로명 주소</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="addr2" placeholder="상세 주소">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="이메일 주소">
+          </div>
+        </section>
+      </section>
+
+      <div class="container mt-1 d-flex justify-content-center mb-4">
+        <button type="button" class="btn btn-primary btn-wide mb-3" onclick="location.href='./join_auth_email.html'">완료</button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    function auth() {
+      swal({
+        title: "완료",
+        text: "인증번호가 메일로 전송되었습니다",
+        confirmButtonText: '확인',
+        confirmButtonColor: '#4dabf7',
+      });
+    }
+    function modal() {
+      swal({
+        title: "입력누락",
+        text: "주소를 입력해주세요",
+        confirmButtonText: '확인',
+        confirmButtonColor: '#4dabf7',
+      });
+    }
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

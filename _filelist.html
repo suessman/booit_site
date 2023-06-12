@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+    <style>
+      tbody {
+        counter-reset: list-number;
+      }
+      tbody tr > td.no:before {
+        counter-increment: list-number;
+        content: counter(list-number);
+      }
+    </style>
+  <link href="./css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+  <body>
+    <div class="container-fluid ui-set">
+      <section class="px-4 py-4 filelist">
+        <h2>부잇 마크업 파일 리스트</h2>
+        <table class="table table-border">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Depth 1</th>
+              <th>Depth 2</th>
+              <th>Depth 3</th>
+              <th>Preview</th>
+              <th>Remark</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="no"></td>
+              <td>UI Set</td>
+              <td></td>
+              <td></td>
+              <td><a href="/_ui.html" target="_blank">/_ui</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>공통 프로필 팝업</td>
+              <td></td>
+              <td></td>
+              <td>목록 또는 채팅방 내 프로필 썸네일 클릭</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>Splash</td>
+              <td></td>
+              <td></td>
+              <td><a href="/splash.html" target="_blank">/splash</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>메인</td>
+              <td></td>
+              <td></td>
+              <td><a href="/index.html" target="_blank">/index</a></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>사용방법</td>
+              <td></td>
+              <td>
+                <a href="/join/use_guide.html" target="_blank"
+                  >/join/use_guide</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>둘러보기</td>
+              <td></td>
+              <td>
+                <a href="/join/preview.html" target="_blank">/join/preview</a>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>회원가입</td>
+              <td></td>
+              <td></td>
+              <td>
+                <a href="/join/join_select.html" target="_blank"
+                  >/join/join_select</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>약관동의</td>
+              <td></td>
+              <td>
+                <a href="/join/join_agree.html" target="_blank"
+                  >/join/join_agree</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>가입정보 입력 - 일반회원</td>
+              <td></td>
+              <td>
+                <a href="/join/join_personal.html" target="_blank"
+                  >/join/join_personal</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>가입정보 입력 - 부동산회원</td>
+              <td></td>
+              <td>
+                <a href="/join/join_company.html" target="_blank"
+                  >/join/join_company</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>이메일로 계정 찾기 (전화번호 변경)</td>
+              <td></td>
+              <td>
+                <a href="/join/join_auth_email.html" target="_blank"
+                  >/join/join_auth_email</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>프로필 수정 - 일반회원</td>
+              <td></td>
+              <td>
+                <a href="/join/mod_personal.html" target="_blank"
+                  >/join/mod_personal</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>프로필 수정 - 부동산회원</td>
+              <td></td>
+              <td>
+                <a href="/join/mod_company.html" target="_blank"
+                  >/join/mod_company</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>서비스 홈</td>
+              <td></td>
+              <td></td>
+              <td>
+                <a href="/search/home.html" target="_blank">/search/home</a>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>내 위치 주변 부동산 목록</td>
+              <td></td>
+              <td>
+                <a href="/search/list_close.html" target="_blank"
+                  >/search/list_close</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>주소 기반 주변 부동산 목록</td>
+              <td></td>
+              <td>
+                <a href="/search/map_close.html" target="_blank"
+                  >/search/map_close</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>단체 쪽지 보내기 (단방향)</td>
+              <td></td>
+              <td>
+                <a href="/search/msg_send_group.html" target="_blank"
+                  >/search/msg_send_group</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>단체 쪽지 보내기 결과</td>
+              <td></td>
+              <td>
+                <a href="/search/msg_send_group_result.html" target="_blank"
+                  >/search/msg_send_group_result</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>나의 쪽지함</td>
+              <td></td>
+              <td></td>
+              <td>
+                <a href="/message/my_msg_box.html" target="_blank"
+                  >/message/my_msg_box</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>보낸 단체 메세지 (단방향)</td>
+              <td></td>
+              <td>
+                <a href="/message/my_sent_group.html" target="_blank"
+                  >/message/my_sent_group</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>1:1 채팅목록</td>
+              <td></td>
+              <td>
+                <a href="/message/my_chat_box.html" target="_blank"
+                  >/message/my_chat_box</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>1:1 채팅방</td>
+              <td></td>
+              <td>
+                <a href="/message/my_chat.html" target="_blank"
+                  >/message/my_chat</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>차단된 채팅방</td>
+              <td></td>
+              <td>
+                <a href="/message/my_chat_block.html" target="_blank"
+                  >/message/my_chat_block</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>신고 접수하기</td>
+              <td></td>
+              <td>
+                <a href="/message/my_report.html" target="_blank"
+                  >/message/my_report</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>마이페이지</td>
+              <td></td>
+              <td></td>
+              <td>
+                <a href="/mypage/home.html" target="_blank">/mypage/my_home</a>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>프로필 수정</td>
+              <td>일반회원</td>
+              <td>
+                <a href="/mypage/mod_personal.html" target="_blank"
+                  >/mypage/mod_personal</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td></td>
+              <td>부동산회원</td>
+              <td>
+                <a href="/mypage/mod_company.html" target="_blank"
+                  >/mypage/mod_company</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>앱 설정</td>
+              <td></td>
+              <td>
+                <a href="/mypage/config.html" target="_blank"
+                  >/mypage/my_config</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>이용약관</td>
+              <td></td>
+              <td>
+                <a href="/mypage/policy.html" target="_blank">/mypage/policy</a>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td></td>
+              <td>이용약관</td>
+              <td>
+                <a href="/mypage/policy_term.html" target="_blank"
+                  >/mypage/policy_term</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td></td>
+              <td>개인정보 취급방침</td>
+              <td>
+                <a href="/mypage/policy_userinfo.html" target="_blank"
+                  >/mypage/policy_userinfo</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td></td>
+              <td>위치기반 서비스 이용약관</td>
+              <td>
+                <a href="/mypage/policy_location.html" target="_blank"
+                  >/mypage/policy_location</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>공지사항</td>
+              <td></td>
+              <td>
+                <a href="/mypage/notice.html" target="_blank">/mypage/notice</a>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td></td>
+              <td>공지사항 상세</td>
+              <td>
+                <a href="/mypage/notice_detail.html" target="_blank"
+                  >/mypage/notice_detail</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td></td>
+              <td>문의하기</td>
+              <td></td>
+              <td>
+                <a href="/mypage/inquiry.html" target="_blank"
+                  >/mypage/inquiry</a
+                >
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="no"></td>
+              <td>결제</td>
+              <td>쿠폰목록</td>
+              <td></td>
+              <td>
+                <a href="/payment/coupon_list.html" target="_blank"
+                  >/payment/coupon_list</a
+                >
+              </td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  <script src="./js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

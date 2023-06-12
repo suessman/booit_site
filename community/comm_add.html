@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 커뮤니티</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- header -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 class="d-block">커뮤니티</h1>
+        </div>
+        <div>
+          <!-- <a href="#communitySearch" class="icon icon-search_grey">
+            <span hidden>검색</span>
+          </a> -->
+          <button type="button" class="icon icon-config_grey" id="dropMenu">
+            <span hidden>설정</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <section class="drop-menu">
+      <div class="drop-edit">
+        <a href="#" data-toggle="modal" data-target="#changeNick">커뮤니티 닉네임설정</a>
+        <a href="./my_report.html">내 활동내역</a>
+        <a href="#">내가 쓴 글</a>
+        <a href="#">내가 쓴 댓글</a>
+        <a href="#">좋아요 한 글</a>
+      </div>
+    </section>
+
+    <!--// header -->
+    <main class="d-flex h-100 flex-column fixed-wrap no-footer bg-grey-two">
+      <div class="container mt-4">
+        <section>
+          <label for="catLabel" class="title-label">카테고리 선택</label>
+          <div class="form-group">
+            <select class="form-control select2" id="catLabel">
+              <option>카테고리를 선택해주세요</option>
+              <option value="1">분류1</option>
+              <option value="1">분류2</option>
+              <option value="1">분류3</option>
+            </select>
+          </div>
+        </section>
+        <section class="mt-4">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="제목을 입력해주세요">
+          </div>
+          <div class="form-group mt-2">
+            <textarea class="form-control" id="txtarea" rows="12" placeholder="내용을 입력하세요"></textarea>
+          </div>
+          <button class="btn btn-lg btn-block btn-primary">글쓰기</button>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Modal - 검색 -->
+  <div class="modal fade" id="changeNick" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="changeNickLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changeNickLabel">커뮤니티 닉네임 변경</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pb-0">
+          <div class="form-row">
+            <div class="col-10">
+              <input type="text" class="form-control" placeholder="닉네임을 입력해주세요">
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-lg btn-block btn-mildgrey mb-2">중복확인</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center pt-0 m-0 border-0">
+          <button type="button" class="btn btn-lg btn-block btn-primary">닉네임 변경</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Top drop edit menu
+    $('#dropMenu').on('click', function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (!status) {
+        $('.drop-menu').addClass('show');
+      } else {
+        $('.drop-menu').removeClass('show');
+      }
+    })
+
+    // select2
+    $('.select2').select2({
+      width: '100%'
+    });
+
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

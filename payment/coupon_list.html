@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>부잇! - 주변 부동산 검색</title>
+    <meta name="description" content="" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+  <body>
+    <div class="d-flex flex-column h-100">
+      <!-- 상단 고정바 -->
+      <header class="top-bar">
+        <nav class="d-flex justify-content-between">
+          <div>
+            <button
+              type="button"
+              class="icon icon-prev_grey"
+              onclick="history.back();"
+            >
+              <span class="invisible">뒤로가기</span>
+            </button>
+          </div>
+          <div class="text-center">
+            <h1>포인트 충전하기</h1>
+          </div>
+          <div></div>
+        </nav>
+      </header>
+
+      <main class="d-flex h-100 flex-column fixed fixed-wrap bg-grey-two">
+        <section class="container mt-4">
+          <h2 class="title-md mb-4">부잇 포인트 충전</h2>
+
+          <div class="row">
+            <div class="col-sm-18 col-md-8 px-auto mb-2">
+              <div class="card">
+                <div class="row mx-0">
+                  <div
+                    class="col-4 px-auto d-flex align-items-center justify-content-center border-right"
+                  >
+                    <img
+                      src="/images/coins.svg"
+                      class="img-fluid"
+                      alt="포인트 아이콘"
+                    />
+                  </div>
+                  <div class="col px-0">
+                    <div class="card-body text-nowrap">
+                      <h5 class="card-title">100 포인트</h5>
+                      <p class="card-text">1,000원</p>
+                    </div>
+                  </div>
+                  <div
+                    class="col d-flex align-items-center justify-content-end"
+                  >
+                    <button type="button" class="btn btn-primary btn-md">
+                      충전하기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-18 col-md-8 px-auto mb-2">
+              <div class="card">
+                <div class="row mx-0">
+                  <div
+                    class="col-4 px-auto d-flex align-items-center justify-content-center border-right"
+                  >
+                    <img
+                      src="/images/coins.svg"
+                      class="img-fluid"
+                      alt="포인트 아이콘"
+                    />
+                  </div>
+                  <div class="col px-0">
+                    <div class="card-body text-nowrap">
+                      <h5 class="card-title">300 포인트</h5>
+                      <p class="card-text">3,000원</p>
+                    </div>
+                  </div>
+                  <div
+                    class="col d-flex align-items-center justify-content-end"
+                  >
+                    <button type="button" class="btn btn-primary btn-md">
+                      충전하기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-18 col-md-8 px-auto mb-2">
+              <div class="card">
+                <div class="row mx-0">
+                  <div
+                    class="col-4 px-auto d-flex align-items-center justify-content-center border-right"
+                  >
+                    <img
+                      src="/images/coins.svg"
+                      class="img-fluid"
+                      alt="포인트 아이콘"
+                    />
+                  </div>
+                  <div class="col px-0">
+                    <div class="card-body text-nowrap">
+                      <h5 class="card-title">500 포인트</h5>
+                      <p class="card-text">4,500원</p>
+                    </div>
+                  </div>
+                  <div
+                    class="col d-flex align-items-center justify-content-end"
+                  >
+                    <button type="button" class="btn btn-primary btn-md">
+                      충전하기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-18 col-md-8 px-auto mb-2">
+              <div class="card">
+                <div class="row mx-0">
+                  <div
+                    class="col-4 px-auto d-flex align-items-center justify-content-center border-right"
+                  >
+                    <img
+                      src="/images/coins.svg"
+                      class="img-fluid"
+                      alt="포인트 아이콘"
+                    />
+                  </div>
+                  <div class="col px-0">
+                    <div class="card-body text-nowrap">
+                      <h5 class="card-title">1000 포인트</h5>
+                      <p class="card-text">9,000원</p>
+                    </div>
+                  </div>
+                  <div
+                    class="col d-flex align-items-center justify-content-end"
+                  >
+                    <button type="button" class="btn btn-primary btn-md">
+                      충전하기
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- 하단 고정 바  -->
+      <footer class="bottom-bar-nav fixed-bottom">
+  <div class="container px-0">
+    <nav class="d-flex align-items-center justify-content-between flex-nowrap">
+      <button type="button" class="icon icon-home_grey active">
+        <span>홈</span>
+      </button>
+      <!-- <button type="button" class="icon icon-mailopen_grey">
+        <span>쪽지문의</span>
+      </button> -->
+      <button type="button" class="icon icon-community_grey" onclick="location.href='/community/comm_home.html'">
+        <span>커뮤니티</span>
+      </button>
+      <button type="button" class="icon icon-like_grey" onclick="location.href='/message/co_work_home.html'">
+        <span>찜목록</span>
+      </button>
+      <button type="button" class="icon icon-mail_grey">
+        <span>부잇챗</span>
+      </button>
+      <button type="button" class="icon icon-user_grey">
+        <span>설정</span>
+      </button>
+    </nav>
+  </div>
+</footer>
+    </div>
+  <script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

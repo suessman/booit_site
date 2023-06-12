@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>부잇! - 마이페이지</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>차단관리</h1>
+        </div>
+        <div></div>
+      </nav>
+    </header>
+    
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey">
+      <div class="mypage h-100">
+        <section class="mypage-section no-pd">
+          <ul class="mypage-section-nav">
+            <li class="mypage-section-nav-item">
+              <span>부잇부동산</span>
+              <button type="button" class="btn btn-primary btn-md" onclick="blockChat()">차단해제</button>
+            </li>
+            <li class="mypage-section-nav-item">
+              <span>던져라이사</span>
+              <button type="button" class="btn btn-primary btn-md" onclick="blockChat()">차단해제</button>
+            </li>
+            <li class="mypage-section-nav-item">
+              <span>디딤부동산</span>
+              <button type="button" class="btn btn-primary btn-md" onclick="blockChat()">차단해제</button>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+  <script>
+    function blockChat() {
+      swal({
+        title: "차단해제",
+        text: "차단을 해제하시겠습니까?",
+        cancelButtonText: '취소',
+        confirmButtonText: '확인',
+        confirmButtonColor: '#ff0000',
+        // newer version
+        cancel: {
+          text: "취소",
+          value: null,
+          visible: false,
+          className: "",
+          closeModal: true,
+        },
+      });
+    }
+
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

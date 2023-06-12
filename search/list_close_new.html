@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 주변 부동산 검색</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>효자동 2가</h1>
+        </div>
+        <div>&nbsp;</div>
+      </nav>
+    </header>
+    <header class="container-fluid list-control">
+      <div class="btn-group dropdown ml-0">
+        <button id="sortDrop" class="btn btn-blank btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="mr-1">전체</span>
+          <i class="sort-toggle icon icon-down_dgrey"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">전체</a>
+          <a class="dropdown-item" href="#">접속</a>
+          <a class="dropdown-item" href="#">거리</a>
+        </div>
+      </div>
+      <div class="btn-wrap text-right">
+        <button class="btn btn-outline btn-md">접속중 선택</button>
+        <button class="btn btn-normal btn-md ml-2">단체 쪽지 보내기</button>
+      </div>
+    </header>
+    <main class="d-flex h-100 flex-column fixed fixed-double bg-grey-two">
+      <div class="container mt-3" id="expand">
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item1">
+                <label class="custom-control-label" for="item1">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item2">
+                <label class="custom-control-label" for="item2">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item3">
+                <label class="custom-control-label" for="item3">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item1">
+                <label class="custom-control-label" for="item1">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item1">
+                <label class="custom-control-label" for="item1">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item1">
+                <label class="custom-control-label" for="item1">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="card-body px-2 py-2">
+            <div class="row">
+              <div class="col-16">
+                <div class="row no-gutters">
+                  <div class="col-auto">
+                    <span class="badge badge-primary">접속</span>
+                    <!-- <span class="badge badge-secondary">접속</span> -->
+                  </div>
+                  <div class="col pl-2 strcut">가3453-03-1234 234123 123 123 123123123123123</div>
+                  <div class="col-auto pr-3 d-flex justify-content-end align-items-center">
+                    <span class="icon icon-like_grey icon-sm"></span>
+                    <span>2k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                    <span>999km</span>
+                  </div>
+                </div>
+                <div class="row no-gutters mt-2">
+                  <div class="col-auto">
+                    <div class="userthumb userthumb-sm2">
+                      <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                    </div>
+                  </div>
+                  <div class="col pl-2">
+                    <p class="card-subhead strcut">부잇부동산 부잇부동산부잇부동산부잇부동산부잇부동산부잇부동산</p>
+                    <!-- 주소가 여러줄이 경우, align-items-center 제거 -->
+                    <div class="d-flex">
+                      <i class="icon icon-medal_orange"></i>
+                      <span class="divider-v">김부잇김부잇김부잇</span>
+                      <span class="strcut">효자동2가 효자동2가 효자동2가 효자동2가 효자동2가 효자동2가효자동2가 효자동2가</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="item1">
+                <label class="custom-control-label" for="item1">
+                  <span hidden>선택</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <section class="fixed-bottom-button">
+      <button type="button" class="btn btn-primary btn-rect">쪽지보내기</button>
+    </section>
+    <!-- 하단 고정 바  --> <footer class="bottom-bar-nav fixed-bottom">
+  <div class="container px-0">
+    <nav class="d-flex align-items-center justify-content-between flex-nowrap">
+      <button type="button" class="icon icon-home_grey active">
+        <span>홈</span>
+      </button>
+      <!-- <button type="button" class="icon icon-mailopen_grey">
+        <span>쪽지문의</span>
+      </button> -->
+      <button type="button" class="icon icon-community_grey" onclick="location.href='/community/comm_home.html'">
+        <span>커뮤니티</span>
+      </button>
+      <button type="button" class="icon icon-like_grey" onclick="location.href='/message/co_work_home.html'">
+        <span>찜목록</span>
+      </button>
+      <button type="button" class="icon icon-mail_grey">
+        <span>부잇챗</span>
+      </button>
+      <button type="button" class="icon icon-user_grey">
+        <span>설정</span>
+      </button>
+    </nav>
+  </div>
+</footer>
+  </div>
+  <!-- 팝업 프로필 -->   <div class="popup">
+    <button type="button" class="icon icon-close_dgrey close">
+      <span hidden>닫기</span>
+    </button>
+    <div class="popup-body">
+      <section class="d-flex flex-column align-items-center justify-content-center">
+        <h1>부잇부동산</h1>
+        <div class="userthumb userthumb-lg mt-3">
+          <img src="/images/demo_profile.jpg" alt="프로필이미지">
+        </div>
+        <div class="likeit mt-3">
+          <button type="button" class="icon icon-like_grey likeit">
+            <span hidden>좋아요</span>
+          </button>
+          <span class="likecount ml-1">152</span>
+        </div>
+      </section>
+      <section class="container mt-4 seller-info">
+        <p>
+          <span class="">이름</span>
+          <span>김부잇</span>
+        </p>
+        <p>
+          <span>거리</span>
+          <span>5 km</span>
+        </p>
+        <p>
+          <span>등록번호</span>
+          <span>123392334</span>
+        </p>
+        <p>
+          <span>주소</span>
+          <span>완산구 효자동3가 1080-1 전주대학교 본관 1층 147호 디딤스토리</span>
+        </p>
+      </section>
+    </div>
+  </div>
+  <!-- 초기 첫 로딩시 가이드 노출-->
+  <!-- <!-- <div class="guide" onclick="closeGuide()"> -->
+<div class="guide" id="closeGuide">
+  <div class="guide-body">
+    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 34 47" class="mt-5">
+      <g fill="none" fill-rule="evenodd">
+        <g transform="translate(-77 -134) translate(78 135)">
+          <path fill="#fff" fill-rule="nonzero"
+            d="M17.75 29.175c-.74-.45-1.508-.622-2.108-.68-.773-.94-1.885-1.452-3.168-1.452-.281 0-.568.024-.856.073-.76-.79-1.807-1.22-2.985-1.22h-.066L8.562 22c0-.895-.38-1.693-1.067-2.247-.602-.486-1.398-.753-2.24-.753-.903 0-1.769.317-2.377.87-.61.555-.932 1.294-.93 2.137l.007 5.623.004 3.568c-.883.429-1.494 1.108-1.777 1.982-.437 1.347-.089 3.082 1.063 5.304.758 1.462 1.667 2.741 2.103 3.324l.193 2.334C3.627 45.184 4.596 46 5.747 46l9.157-.01c1.105-.002 2.047-.753 2.19-1.747l.356-2.46c2.162-3.078 2.955-6.268 2.357-9.482-.326-1.75-1.299-2.666-2.057-3.126zm-1.543 12.018c-.066.092-.11.197-.125.306l-.373 2.579c-.053.368-.398.62-.807.62l-9.154-.012h-.001c-.426 0-.78-.276-.813-.662l-.205-2.463c-.01-.131-.059-.25-.14-.358C3.75 40.097-.93 33.648 2.86 32.21c.302-.115.498-.381.497-.678l-.013-9.527c-.001-1.158.955-1.737 1.911-1.737.954 0 1.909.578 1.91 1.733l.006 4.472c0 .414.372.738.812.738.042 0 .085-.003.128-.009.162-.023.338-.038.522-.038.687 0 1.49.21 2.105.983.152.192.397.297.65.297.072 0 .144-.008.215-.025.24-.058.542-.107.871-.107.718 0 1.566.235 2.19 1.129.126.18.339.29.573.299.825.027 2.742.355 3.192 2.772.417 2.24.225 5.246-2.222 8.68z" />
+          <rect width="8" height="8" x="1" stroke="#fff" stroke-width="1.5" rx="1" />
+          <path stroke="#fff" stroke-width="1.5" d="M1.802 22h1.277H1.8c-.442 0-.8-.358-.8-.8v-6.4c0-.442.358-.8.8-.8h6.4c.442 0 .8.358.8.8v6.4c0 .442-.358.8-.8.8h-.86" />
+          <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M0 13.031L4.484 18 12 10" />
+          <path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M14 18L32.001 18M14 4L32.001 4" />
+        </g>
+      </g>
+    </svg>
+    <p class="mt-3">쪽지 보낼 부동산을 선택해주세요</p>
+  </div>
+  <button type="button" class="icon icon-close_grey">
+    <span hidden>닫기</span>
+  </button>
+</div>
+<script>
+  // Guide Close
+  function closeGuide() {
+    let el = document.querySelector('.guide');
+    el.remove();
+  }
+  $('#closeGuide').on('click', function () {
+    $(this).removeClass('show');
+  })
+</script> -->
+  <script>
+    // ui swiper
+    // let touchstartX = 0;
+    // let touchstartY = 0;
+    // let touchendX = 0;
+    // let touchendY = 0;
+
+    // const touchList = document.getElementById('expand');
+
+    // touchList.addEventListener('touchstart', function (event) {
+    //   touchstartX = event.changedTouches[0].screenX;
+    // }, false);
+    // touchList.addEventListener('touchend', function (event) {
+    //   touchendX = event.changedTouches[0].screenX;
+    //   handleGesture();
+    // }, false);
+
+    // function handleGesture() {
+    //   if (touchendX < touchstartX) {
+    //     console.log('Swiped left');
+    //     touchList.classList.remove('show');
+    //   }
+    //   if (touchendX > touchstartX) {
+    //     console.log('Swiped right');
+    //     touchList.classList.add('show');
+    //   }
+    // }
+
+    // ios 클릭이벤트 지연 문제 처리 함수
+    var clickEvent = (function () {
+      if ('ontouchstart' in document.documentElement === true) {
+        return 'touchstart';
+      } else {
+        return 'click';
+      }
+    })();
+
+
+    $(".custom-control-input").on("change", function (e) {
+      const isOn = e.currentTarget.checked;
+      if (isOn) {
+        $(".fixed-bottom-button, .fixed-double").addClass('show');
+      } else {
+        $(".fixed-bottom-button, .fixed-double").removeClass('show');
+      }
+    })
+
+    $('#sortDrop').on(clickEvent, function () {
+      $('.sort-toggle').toggleClass('toggled');
+      if ($('.sort-toggle').hasClass('toggled')) {
+        $('.sort-toggle').addClass('icon-up_dgrey').removeClass('icon-down_dgrey');
+      } else {
+        $('.sort-toggle').removeClass('icon-up_dgrey').addClass('icon-down_dgrey');
+      }
+    })
+    $('.dropdown-menu a').on(clickEvent, function (e) {
+      e.preventDefault();
+      var selected = $(this).text();
+      $('.sort-toggle').removeClass('toggled icon-up_dgrey').addClass('icon-down_dgrey');
+      $('.dropdown-toggle > span').text(selected);
+    })
+
+    // Popup profile close
+    $('.userthumb').on(clickEvent, function () {
+      $('.popup').addClass('show');
+    })
+    $('.popup .close').on(clickEvent, function () {
+      $('.popup').removeClass('show');
+    })
+
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

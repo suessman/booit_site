@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 쪽지 발송</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- Image Pinch-zoom -->
+  <script src="https://unpkg.com/pinch-zoom-js"></script>
+  <!-- <script src="/js/waitforimages.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/2.4.0/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- header -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 class="d-block">공인중개사 Co-Work</h1>
+        </div>
+        <div>
+          <button type="button" class="icon icon-notice_dgrey" data-toggle="modal" data-target="#">
+            <span hidden>알림</span>
+            <span class="badge badge-num">999</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!--// header -->
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey-two">
+      <section class="container mt-4">
+        <label class="title-label">공인중개사 및 분양상담사 선택</label>
+        <div class="form-group mt-2">
+          <select class="form-control select-area">
+            <option>선택</option>
+            <option value="1">부동산1</option>
+            <option value="1">상담사1</option>
+          </select>
+        </div>
+        <label class="title-label">지역선택</label>
+        <div class="form-group mt-2">
+          <select class="form-control select-area">
+            <option>시도 지역 선택</option>
+            <option value="1">서울</option>
+            <option value="1">경기</option>
+            <option value="1">대전</option>
+            <option value="1">대구</option>
+            <option value="1">부산</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select class="form-control select-city">
+            <option>시군구 선택</option>
+            <option value="1">전주시 완산구</option>
+            <option value="1">전주시 덕진구</option>
+          </select>
+        </div>
+        <hr>
+        <div>
+          <a href="/message/co_work.html" class="btn btn-lg btn-block btn-primary btn-big">공용중개방 입장하기</a>
+        </div>
+      </section>
+
+      <section class="container-fluid mt-4 bg-white">
+        <div class="container">
+          <b class="text-bold text-dark d-block mt-4">'전라북도 전주시' 인기 키워드</b>
+          <div class="keytags-wrapper my-3">
+            <ol class="list-order">
+              <li>
+                <a href="#;">호반</a>
+              </li>
+              <li>
+                <a href="#;">혁신</a>
+              </li>
+              <li>
+                <a href="#;">바구멀</a>
+              </li>
+              <li>
+                <a href="#;">급매</a>
+              </li>
+              <li>
+                <a href="#;">전세</a>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 하단 고정 바  --> <footer class="bottom-bar-nav fixed-bottom">
+  <div class="container px-0">
+    <nav class="d-flex align-items-center justify-content-between flex-nowrap">
+      <button type="button" class="icon icon-home_grey active">
+        <span>홈</span>
+      </button>
+      <!-- <button type="button" class="icon icon-mailopen_grey">
+        <span>쪽지문의</span>
+      </button> -->
+      <button type="button" class="icon icon-community_grey" onclick="location.href='/community/comm_home.html'">
+        <span>커뮤니티</span>
+      </button>
+      <button type="button" class="icon icon-like_grey" onclick="location.href='/message/co_work_home.html'">
+        <span>찜목록</span>
+      </button>
+      <button type="button" class="icon icon-mail_grey">
+        <span>부잇챗</span>
+      </button>
+      <button type="button" class="icon icon-user_grey">
+        <span>설정</span>
+      </button>
+    </nav>
+  </div>
+</footer>
+
+    <!-- 업데이트 알림 -->
+    <!-- 노출시 show 클래스 적용 -->
+<div class="guide" id="closeGuide">
+  <div class="guide-body my-3">
+    <p class="mt-3">최신 업데이트가 있습니다.</p>
+  </div>
+  <button type="button" class="btn btn-wide btn-primary">업데이트 바로가기</button>
+  <button type="button" class="icon icon-close_grey">
+    <span hidden>닫기</span>
+  </button>
+</div>
+<script>
+  // Guide Close
+  function closeGuide() {
+    let el = document.querySelector('.guide');
+    el.remove();
+  }
+  $('#closeGuide').on('click', function () {
+    $(this).removeClass('show');
+  })
+</script>
+
+  </div>
+  <!-- Modal - 지역설정 -->
+  <div class="modal fade" id="areaSet" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="areaSetLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="areaSetLabel">지역설정</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <select class="form-control select-area">
+              <option>시도 지역 선택</option>
+              <option value="1">서울</option>
+              <option value="1">경기</option>
+              <option value="1">대전</option>
+              <option value="1">대구</option>
+              <option value="1">부산</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select class="form-control select-city">
+              <option>시군구 선택</option>
+              <option value="1">전주시 완산구</option>
+              <option value="1">전주시 덕진구</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center pt-0 m-0 border-0">
+          <button type="button" class="btn btn-lg btn-block btn-primary">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal - 검색 -->
+  <div class="modal fade" id="searchCowork" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="searchCoworkLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchCoworkLabel">Co-Work 검색</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pb-0">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="검색어를 입력해주세요">
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center pt-0 m-0 border-0">
+          <button type="button" class="btn btn-lg btn-block btn-primary">검색</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal - 키워드알림 -->
+  <div class="modal fade" id="pushKeyword" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="pushKeywordLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pushKeywordLabel">키워드 알림 설정</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <section>
+            <p>알림 받을 키워드</p>
+            <div class="form-group position-relative mb-0">
+              <input type="text" class="form-control pr-5" id="inputKeyword" placeholder="키워드를 입력해주세요">
+              <button type="button" class="btn-text btn-text-in" id="addKeyword">
+                <span>등록</span>
+              </button>
+            </div>
+          </section>
+          <section class="keytags-container mt-2">
+            <div class="keytag"><span>키워드</span><i class="icon icon-close_dgrey remove-button"></i></div>
+          </section>
+        </div>
+        <!-- <div class="modal-footer justify-content-center pt-0 m-0 border-0">
+          <button type="button" class="btn btn-lg btn-block btn-primary">검색</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <script>
+
+    // select2
+    $('.select-area, .select-city').select2({
+      placeholder: 'Select an option',
+      width: '100%'
+    });
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

@@ -1,0 +1,114 @@
+<head><link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head><footer class="bottom-chat fixed-bottom">
+  <div class="container">
+    <nav class="d-flex align-items-center justify-content-between">
+      <div class="col-auto px-0">
+        <button type="button" class="icon icon-plus_dgrey btn" onclick="attach();">
+          <span hidden>통화, 파일첨부</span>
+        </button>
+      </div>
+      <div class="col pr-0">
+        <div class="form-group position-relative mb-0">
+          <label for="chatInput" hidden>채팅입력</label>
+          <textarea class="form-control form-control-sm" id="chatInput" rows="1" contenteditable="true"></textarea>
+          <button type="button" class="btn-text btn-text-in">보내기</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="attach" id="attachFile">
+    <!-- 하단 통화, 파일첨부 UI -->
+    <div class="call-ui">
+      <a href="tel:000-000-0000" class="btn">
+        <i class="icon icon-phonecall_grey sbtn-circle"></i>
+        <div class="mt-2">전화걸기</div>
+      </a>
+      <a href="#;" class="btn" id="fileUp">
+        <i class="icon icon-attach_grey sbtn-circle"></i>
+        <div class="mt-2">파일보내기</div>
+      </a>
+    </div>
+    <div class="attach-ui">
+      <section class="attach-bar px-3">
+        <!-- <input type="file" id="addFile" hidden>
+        <label for="addFile" class="icon icon-plus_blue">
+          <span hidden>파일추가</span>
+        </label> -->
+        <button type="button" class="icon icon-plus_blue">
+          <span hidden>파일추가</span>
+        </button>
+        <button type="button" class="icon icon-upload_blue">
+          <span hidden>파일추가</span>
+        </button>
+      </section>
+      <section class="attach-thumb">
+        <div class="attach-thumb-item" style="background-image: url('../images/demo_profile.jpg');">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+      </section>
+    </div>
+  </div>
+</footer>
+<script>
+  // ios 클릭이벤트 지연 문제 처리 함수
+  var clickEvent = (function () {
+    if ('ontouchstart' in document.documentElement === true) {
+      return 'touchstart';
+    } else {
+      return 'click';
+    }
+  })();
+
+  // 통화,첨부 ui 열기
+  function attach() {
+    var state = document.getElementById("attachFile");
+    state.classList.toggle("show");
+  }
+
+  $(function () {
+    // 채팅 영역 클릭시 ui 닫기
+    $('.chat-container').on(clickEvent, function () {
+      $('#attachFile, .attach-ui').removeClass('show');
+    });
+
+    $('#fileUp').on('click', function () {
+      $('.attach-ui').addClass('show');
+    })
+
+    // 입력창 하단 포커싱
+    $("#chatInput").on('focus', function () {
+      $("body, html, .fixed-chat").animate({ scrollTop: $('.fixed-chat').height() }, 400);
+    });
+
+    // 엔터키 입력시 입력창 확장
+    $('#chatInput').keypress(function (e) {
+      var key = e.which;
+      if (key == 13) {
+        $(".fixed-chat, .bottom-chat").addClass('expand');
+        $(this).addClass('expand');
+        $("body, html").animate({ scrollTop: $('.fixed-chat').height() }, 300);
+        // return false;
+      }
+    });
+    // 전송버튼 클릭시 입력창 원복 및 입력 내용 지우기
+    $('.btn-text-in').on('click', function () {
+      $(".fixed-chat, .bottom-chat").removeClass('expand');
+      $("#chatInput").removeClass('expand').val("");
+    })
+  })
+
+</script><script src=".././js/index.bundle.js?eb006a2360b74254a818"></script>

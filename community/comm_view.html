@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 커뮤니티</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- header -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 class="d-block">커뮤니티</h1>
+        </div>
+        <div>
+          <!-- <a href="#communitySearch" class="icon icon-search_grey">
+            <span hidden>검색</span>
+          </a> -->
+          <button type="button" class="icon icon-config_grey" id="dropMenu">
+            <span hidden>설정</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <section class="drop-menu">
+      <div class="drop-edit">
+        <a href="#" data-toggle="modal" data-target="#changeNick">커뮤니티 닉네임설정</a>
+        <a href="./my_report.html">내 활동내역</a>
+        <a href="#">내가 쓴 글</a>
+        <a href="#">내가 쓴 댓글</a>
+        <a href="#">좋아요 한 글</a>
+      </div>
+    </section>
+
+    <!--// header -->
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey-two">
+      <section class="board container mt-4 text-charcoal">
+        <div class="board-header">
+          <h2>제목이 들어가는 영역입니다.</h2>
+          <span class="date">2021.10.23 11:30</span>
+        </div>
+        <div class="board-info px-0 mt-2">
+          <dl class="data-list">
+            <dt>아이디</dt>
+            <dd>홍길동</dd>
+            <dt>조회</dt>
+            <dd>999</dd>
+            <dt>추천</dt>
+            <dd>999</dd>
+          </dl>
+        </div>
+        <div class="board-body">
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquam libero nemo esse vel molestias corporis similique ducimus. Ut ullam ad et porro explicabo culpa laboriosam recusandae nulla quae veritatis animi labore sapiente autem,
+            molestias odio voluptate maxime voluptas dignissimos quos fuga ipsam accusantium odit? Ea minima porro, deserunt culpa magnam at, vitae veritatis iste laudantium eveniet voluptatem rem tenetur? Animi, quam possimus. Perferendis labore deleniti
+          </p>
+        </div>
+      </section>
+      <section class="board-comment container py-2">
+        <div class="board-like">
+          <label>댓글</label>
+          <button type="button" class="icon icon-like_grey likeit">
+            <span hidden="">좋아요</span>
+          </button>
+        </div>
+        <!-- 댓글 아이템 -->
+        <article class="row comment border-top">
+          <div class="col-11 content">
+            댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+            <a href="#;" class="btn btn-sm btn-outline btn-reply">답글쓰기</a>
+          </div>
+          <div class="col-3 info text-center">
+            <span>홍길동</span>
+            <span>00.00.00</span>
+          </div>
+          <div class="col-2 text-center">
+            <button class="icon icon-delete_dgrey"><span class="sr-only">삭제</span></button>
+          </div>
+        </article>
+        <!--// 댓글 아이템 -->
+        <!-- 댓글 아이템 -->
+        <article class="row comment reply border-top">
+          <div class="col-11 content">
+            댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.댓글입니다. 댓글입니다.댓글입니다. 댓글입니다.
+            <a href="#;" class="btn btn-sm btn-outline btn-reply">답글쓰기</a>
+          </div>
+          <div class="col-3 info text-center">
+            <span>홍길동</span>
+            <span>00.00.00</span>
+          </div>
+          <div class="col-2 text-center">
+            <button class="icon icon-delete_dgrey"><span class="sr-only">삭제</span></button>
+          </div>
+        </article>
+        <!--// 댓글 아이템 -->
+        <!-- 댓글 아이템 -->
+        <article class="row comment border-top">
+          <div class="col-11 content">
+            댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+            <a href="#;" class="btn btn-sm btn-outline btn-reply">답글쓰기</a>
+          </div>
+          <div class="col-3 info text-center">
+            <span>홍길동</span>
+            <span>00.00.00</span>
+          </div>
+          <div class="col-2 text-center">
+            <button class="icon icon-delete_dgrey"><span class="sr-only">삭제</span></button>
+          </div>
+        </article>
+        <!--// 댓글 아이템 -->
+        <!-- 댓글 아이템 -->
+        <article class="row comment border-top">
+          <div class="col-11 content">
+            댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+            <a href="#;" class="btn btn-sm btn-outline btn-reply">답글쓰기</a>
+          </div>
+          <div class="col-3 info text-center">
+            <span>홍길동</span>
+            <span>00.00.00</span>
+          </div>
+          <div class="col-2 text-center">
+            <button class="icon icon-delete_dgrey"><span class="sr-only">삭제</span></button>
+          </div>
+        </article>
+        <!--// 댓글 아이템 -->
+        <!-- 댓글 아이템 -->
+        <article class="row comment border-top">
+          <div class="col-11 content">
+            댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+            <a href="#;" class="btn btn-sm btn-outline btn-reply">답글쓰기</a>
+          </div>
+          <div class="col-3 info text-center">
+            <span>홍길동</span>
+            <span>00.00.00</span>
+          </div>
+          <div class="col-2 text-center">
+            <button class="icon icon-delete_dgrey"><span class="sr-only">삭제</span></button>
+          </div>
+        </article>
+        <!--// 댓글 아이템 -->
+        <!-- 댓글 아이템 -->
+        <article class="row comment border-top">
+          <div class="col-11 content">
+            댓글입니다. 댓글입니다. 댓글입니다. 댓글입니다.
+            <a href="#;" class="btn btn-sm btn-outline btn-reply">답글쓰기</a>
+          </div>
+          <div class="col-3 info text-center">
+            <span>홍길동</span>
+            <span>00.00.00</span>
+          </div>
+          <div class="col-2 text-center">
+            <button class="icon icon-delete_dgrey"><span class="sr-only">삭제</span></button>
+          </div>
+        </article>
+        <!--// 댓글 아이템 -->
+      </section>
+    </main>
+
+    <!-- 댓글 입력창 -->
+    <!-- Reply target info -->
+    <div class="container reply-to">
+      <span>xxxx님에게 답글 남기는 중</span>
+      <button type="button" class="icon icon-close_grey icon-sm">
+        <span class="sr-only">닫기</span>
+      </button>
+    </div>
+    <footer class="bottom-comment container fixed-bottom">
+      <div class="row py-2">
+        <div class="form-group col-16 position-relative">
+          <label for="commentInput" hidden>댓글입력</label>
+          <textarea class="form-control" id="commentInput" rows="1" contenteditable="true" placeholder="댓글 쓰기"></textarea>
+          <button type="button" class="btn-text btn-text-in">작성</button>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Modal - 검색 -->
+  <div class="modal fade" id="changeNick" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="changeNickLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changeNickLabel">커뮤니티 닉네임 변경</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body pb-0">
+          <div class="form-row">
+            <div class="col-10">
+              <input type="text" class="form-control" placeholder="닉네임을 입력해주세요">
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-lg btn-block btn-mildgrey mb-2">중복확인</button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center pt-0 m-0 border-0">
+          <button type="button" class="btn btn-lg btn-block btn-primary">닉네임 변경</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // like button toggle
+    $('.likeit').on('click', function () {
+      let status = $(this).hasClass('icon-like_orange');
+      console.log(status);
+      if (!status) {
+        $(this).addClass('icon-like_orange');
+      } else {
+        $(this).removeClass('icon-like_orange');
+      }
+    })
+
+    // Top drop edit menu
+    $('#dropMenu').on('click', function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (!status) {
+        $('.drop-menu').addClass('show');
+      } else {
+        $('.drop-menu').removeClass('show');
+      }
+    })
+
+    // 댓글아이콘 클릭시 input focus
+    // $(".btns .icon-chat").on('click', function () {
+    //   $(".footer-comment .form-control").focus();
+    // });
+    $(".btn-reply").on('click', function () {
+      $("main").css({ paddingBottom: 104 });
+      $(".reply-to").addClass('active');
+      $(".bottom-comment .form-control").focus();
+      $(".icon-close_grey").on('click', function () {
+        $("main").css({ paddingBottom: 56 });
+        $(".reply-to").removeClass('active');
+        $(".bottom-comment .form-control").focus();
+      })
+    })
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

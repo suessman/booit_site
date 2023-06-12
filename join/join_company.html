@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>부잇! - 가입하기</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <nav class="top-bar justify-content-center">
+      <h1>공인중개사 정보</h1>
+    </nav>
+    
+    <main class="d-flex h-100 flex-column fixed-wrap">
+
+      <section class="container mt-4">
+        <article class="d-flex justify-content-center">
+          <div class="userthumb">
+            <img src="/images/demo_profile.jpg" alt="프로필이미지">
+            <button class="userthumb-photo icon icon-camera_grey">
+              <span hidden>사진업로드</span>
+            </button>
+          </div>
+        </article>
+        <article class="card card-notice mt-4 bg-light border-0">
+          <div class="card-body py-3">
+            개업공인중개사 및 소속공인중개사만 등록이 가능하며 허위사항이 발견될 경우 공인중개사법에 의거 처벌받을수 있으며 이용이 제한되오니 유의바랍니다.
+건전한 부동산 중개문화를 위해 협조 바랍니다.
+          </div>
+        </article>
+        <section class="mt-4">
+          <div class="form-group">
+            <input type="text" class="form-control" id="no" placeholder="등록번호">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="coname" placeholder="상호명을 입력해주세요">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="ceoname" placeholder="공인중개사 성명">
+          </div>
+          <div class="row">
+            <div class="col-11 pr-0">
+              <div class="form-group mr-3 mb-3">
+                <label for="addr" class="sr-only">주소</label>
+                <input type="text" class="form-control" id="addr" placeholder="주소등록">
+              </div>
+            </div>
+            <div class="col-5 pl-0">
+              <button type="button" class="btn btn-mildgrey btn-lg mb-3" onclick="modal()">도로명 주소</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="addr2" placeholder="상세 주소">
+          </div>
+          <div class="form-group position-relative">
+            <input type="email" class="form-control" id="email" placeholder="이메일 주소">
+            <button type="button" class="btn-text btn-text-in">중복확인</button>
+          </div>
+        </section>
+      </section>
+      
+      <div class="container mt-1 d-flex justify-content-center mb-4">
+        <button type="button" class="btn btn-primary btn-wide mb-3" onclick="location.href='./join_auth_email.html'">완료</button>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    function modal() {
+      swal({
+        title: "입력누락",
+        text: "주소를 입력해주세요",
+        confirmButtonText: '확인',
+        confirmButtonColor: '#4dabf7',
+      });
+    }
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

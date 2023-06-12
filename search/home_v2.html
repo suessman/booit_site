@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 주변 부동산 검색</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 --> <header class="top-bar">
+  <nav class="d-flex align-items-center justify-content-center">
+    <div></div>
+    <div class="text-center">
+      <img src="/images/logo.svg" class="logo-bar" alt="부잇 로고" />
+    </div>
+    <div>
+      <button type="button" class="icon icon-share_dgrey" data-toggle="modal" data-target="#">
+        <span hidden>공유</span>
+      </button>
+    </div>
+  </nav>
+</header>
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey-two">
+      <section class="container mt-4">
+        <div class="owl-carousel owl-theme button-group">
+          <div class="item">
+            <button type="button" class="btn btn-primary btn-special" onclick="location.href='./list_close.html'">
+              <i class="icon icon-searchuser icon-sp"></i>
+              <p>공인중개사 검색</p>
+            </button>
+          </div>
+          <div class="item">
+            <button type="button" class="btn btn-primary btn-special">
+              <i class="icon icon-searchitem icon-sp"></i>
+              <p>분양 검색</p>
+            </button>
+          </div>
+          <div class="item">
+            <button type="button" class="btn btn-primary btn-special">
+              <p>주소로 검색</p>
+            </button>
+          </div>
+          <div class="item">
+            <button type="button" class="btn btn-primary btn-special">
+              <p>주소로 검색</p>
+            </button>
+          </div>
+        </div>
+      </section>
+      <div class="container-fluid mt-4 status">
+        <section class="row d-flex flex-row align-items-center bg-white">
+          <h2 class="title-md col-6 text-center">공인중개사</h2>
+          <a class="box-number col-10">
+            <span class="title-blue">18,903명</span>
+          </a>
+        </section>
+        <section class="row d-flex flex-row align-items-center bg-white">
+          <h2 class="title-md col-6 text-center">분양중</h2>
+          <a class="box-number col-10">
+            <span class="title-blue">18,903건</span>
+          </a>
+        </section>
+        <section class="row d-flex flex-row align-items-center bg-white">
+          <h2 class="title-md col-6 text-center">누적 문의량</h2>
+          <a class="box-number col-10">
+            <span class="title-blue">3,903개</span>
+          </a>
+        </section>
+      </div>
+      <div class="container mt-4 cowork">
+        <div class="row">
+          <div class="col-8 pr-1">
+            <button class="btn btn-lg btn-block btn-outline" onclick="location.href='/message/oneclick_step1.html'">
+              <i class="icon icon-oneclick"></i>
+              <span>원클릭 쪽지문의</span>
+            </button>
+            <p> 부동산을 팔거나 구할 땐, 내 주변 3km 이내 공인중개사에게 원클릭으로 의뢰합니다. </p>
+          </div>
+          <div class="col-8 pl-1">
+            <button class="btn btn-lg btn-block btn-outline members" onclick="location.href='/message/co_work_home.html'">
+              <i class="icon icon-cowork icon-cowork_blue"></i>
+              <span>공인중개사 Co-Work</span>
+            </button>
+            <p>
+              <b>공인중개사 전용 공간</b><br> 일반회원 이용불가
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-block btn-outline btn-sp2">
+              <i class="icon icon-oneclick"></i>
+              <span>원클릭 의뢰</span>
+            </button>
+            <p class="text-dark heading">
+              원하는 지역의 공인중개사에게 의뢰서를 전달합니다.
+            </p>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container word-wrap text-center">
+        <!-- 추가 안내 텍스트는 여기에 --> 공인중개사 확인은 xxx 협회를 통해 진행합니다. 공인중개사로 확인되지 않을 시 이용이 정지됩니다.
+      </div>
+    </main>
+    <!-- 하단 고정 바  --> <footer class="bottom-bar-nav fixed-bottom">
+  <div class="container px-0">
+    <nav class="d-flex align-items-center justify-content-between flex-nowrap">
+      <button type="button" class="icon icon-home_grey active">
+        <span>홈</span>
+      </button>
+      <!-- <button type="button" class="icon icon-mailopen_grey">
+        <span>쪽지문의</span>
+      </button> -->
+      <button type="button" class="icon icon-community_grey" onclick="location.href='/community/comm_home.html'">
+        <span>커뮤니티</span>
+      </button>
+      <button type="button" class="icon icon-like_grey" onclick="location.href='/message/co_work_home.html'">
+        <span>찜목록</span>
+      </button>
+      <button type="button" class="icon icon-mail_grey">
+        <span>부잇챗</span>
+      </button>
+      <button type="button" class="icon icon-user_grey">
+        <span>설정</span>
+      </button>
+    </nav>
+  </div>
+</footer>
+  </div>
+  <script>
+    // Slides
+    $(".owl-carousel").owlCarousel({
+      dots: false,
+      nav: true,
+      margin: 10,
+      responsive: {
+        0: {
+          items: 2
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    });
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

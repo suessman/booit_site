@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 원클릭 쪽지 문의</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- Image Pinch-zoom -->
+  <script src="https://unpkg.com/pinch-zoom-js"></script>
+  <!-- <script src="/js/waitforimages.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/2.4.0/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- header -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 class="d-block">원클릭 쪽지문의</h1>
+          <!-- 쪽지문의일 경우 -->
+          <!-- <h1 class="d-block">쪽지문의</h1> -->
+        </div>
+        <div>
+        </div>
+      </nav>
+    </header>
+    <!--// header -->
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey-two">
+
+      <section class="container mt-4">
+        <div class="progress steps">
+          <div class="progress-bar" role="progressbar" style="width: 82.5%" aria-valuenow="82.5" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </section>
+      <p class="heading text-center mt-4">원하시는 일정을 선택해주세요.</p>
+
+      <section class="container mt-4">
+        <div class="form-row">
+          <div class="custom-radio col-8">
+            <input type="radio" name="targetDate" id="opt1" class="sr-only" checked>
+            <label for="opt1">
+              <span>가능한 빠르게</span>
+            </label>
+          </div>
+          <div class="custom-radio col-8">
+            <input type="radio" name="targetDate" id="opt2" class="sr-only">
+            <label for="opt2">
+              <span>1개월 내</span>
+            </label>
+          </div>
+          <div class="custom-radio col-8">
+            <input type="radio" name="targetDate" id="opt3" class="sr-only">
+            <label for="opt3">
+              <span>2개월 내</span>
+            </label>
+          </div>
+          <div class="custom-radio col-8">
+            <input type="radio" name="targetDate" id="opt4" class="sr-only">
+            <label for="opt4">
+              <span>3개월 내</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="bottom-step fixed-bottom">
+      <div class="container py-2">
+        <div class="form-row">
+          <div class="col-16">
+            <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='/message/oneclick_sell_step6.html'">다음</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // select2
+    $('.select2').select2({
+      width: '100%'
+    });
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

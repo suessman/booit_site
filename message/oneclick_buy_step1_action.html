@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 원클릭 쪽지 문의</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- Image Pinch-zoom -->
+  <script src="https://unpkg.com/pinch-zoom-js"></script>
+  <!-- <script src="/js/waitforimages.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/2.4.0/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- header -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 class="d-block">원클릭 쪽지문의</h1>
+          <!-- 쪽지문의일 경우 -->
+          <!-- <h1 class="d-block">쪽지문의</h1> -->
+        </div>
+        <div>
+        </div>
+      </nav>
+    </header>
+    <!--// header -->
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey-two">
+
+      <section class="container mt-4">
+        <div class="progress steps">
+          <div class="progress-bar" role="progressbar" style="width: 16.5%" aria-valuenow="16.5" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </section>
+      <p class="heading text-center mt-4">원하시는 조건을 선택해주세요.</p>
+
+      <section class="container mt-1">
+        <label for="areaLabel" class="title-label-bold">구분</label>
+        <div class="form-row">
+          <div class="custom-radio col-8">
+            <input type="radio" name="cat" id="buy" class="sr-only">
+            <label for="buy">
+              <span>구합니다</span>
+            </label>
+          </div>
+          <div class="custom-radio col-8">
+            <input type="radio" name="cat" id="sell" class="sr-only">
+            <label for="sell">
+              <span>내놓습니다</span>
+            </label>
+          </div>
+          <div class="custom-radio col-8">
+            <input type="radio" name="cat" id="etc" class="sr-only">
+            <label for="etc">
+              <span>기타</span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <div class="active-group ptype" style="display: none;">
+        <section class="container mt-3">
+          <label for="catLabel" class="title-label-bold">종류</label>
+          <div class="form-row">
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type1" class="sr-only">
+              <label for="type1">
+                <span>원,투,쓰리룸</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type2" class="sr-only">
+              <label for="type2">
+                <span>쓰리룸 이상</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type3" class="sr-only">
+              <label for="type3">
+                <span>오피스텔</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type4" class="sr-only">
+              <label for="type4">
+                <span>아파트</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type5" class="sr-only">
+              <label for="type5">
+                <span>분양권</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type6" class="sr-only">
+              <label for="type6">
+                <span>상가</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="ptype" id="type7" class="sr-only">
+              <label for="type7">
+                <span>토지</span>
+              </label>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="active-group ptype-sub pb-5" id="sub1" style="display: none;">
+        <hr>
+        <section class="container">
+          <div class="form-row">
+            <div class="custom-radio col-8">
+              <input type="radio" name="area" id="area1" class="sr-only">
+              <label for="area1">
+                <span>10평 미만</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="area" id="area2" class="sr-only">
+              <label for="area2">
+                <span>10평 대</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="area" id="area3" class="sr-only">
+              <label for="area3">
+                <span>20평 대</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="area" id="area4" class="sr-only">
+              <label for="area4">
+                <span>30평 대</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="area" id="area5" class="sr-only">
+              <label for="area5">
+                <span>40평 대</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="area" id="area6" class="sr-only">
+              <label for="area6">
+                <span>50평 대</span>
+              </label>
+            </div>
+          </div>
+        </section>
+        <hr>
+        <section class="container" id="sub2">
+          <div class="form-row">
+            <div class="custom-radio col-8">
+              <input type="radio" name="floor" id="floor1" class="sr-only">
+              <label for="floor1">
+                <span>반지층</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="floor" id="floor2" class="sr-only">
+              <label for="floor2">
+                <span>낮은 층</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="floor" id="floor3" class="sr-only">
+              <label for="floor3">
+                <span>중간 층</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="floor" id="floor4" class="sr-only">
+              <label for="floor4">
+                <span>높은 층</span>
+              </label>
+            </div>
+            <div class="custom-radio col-8">
+              <input type="radio" name="floor" id="floor5" class="sr-only">
+              <label for="floor5">
+                <span>옥탑</span>
+              </label>
+            </div>
+          </div>
+          <div class="mt-2 mb-5">
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" id="checkbox" class="custom-control-input">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-label text-dark">층 상관없어요</span>
+            </label>
+          </div>
+        </section>
+      </div>
+
+      <div class="active-group sell" style="display: none;">
+        <hr>
+        <section class="container">
+          <div class="form-group">
+            <input type="number" id="square" class="form-control" placeholder="평수">
+          </div>
+        </section>
+        <section class="container input-floor">
+          <div class="form-group">
+            <input type="number" id="floor" class="form-control" placeholder="층수">
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <footer class="bottom-step fixed-bottom">
+      <div class="container py-2">
+        <div class="form-row">
+          <div class="col-16">
+            <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='/message/oneclick_buy_step2.html'">다음</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // select2
+    $('.select2').select2({
+      width: '100%'
+    });
+
+    // 구분 선택
+    $('input[name="cat"]').on('click', function (e) {
+      e.stopPropagation();
+      $('.active-group').hide().find('input[type="radio"]').prop('checked', false);
+      $('.active-group.sell').hide();
+      $('.input-floor').show();
+      var catId = $(this).attr('id');
+
+      // 구합니다, 내놓습니다
+      if (catId == 'buy' || catId == 'sell') {
+        $('.active-group.ptype').show();
+        // 내 놓을 경우
+        if (catId == 'sell') {
+          console.log(catId)
+          $('.active-group.sell').show();
+          $('.ptype-sub').hide();
+        } else if (catId == 'buy') {
+          $('.active-group.sell').hide();
+          // 종류 선택
+          console.log(catId)
+          $('input[name="ptype"]').on('click', function (e) {
+            var ptypeId = $(this).attr('id');
+            if (ptypeId == 'type7' || ptypeId == 'type6') {
+              $('.ptype-sub').hide();
+              $('.active-group.sell').show().find('.square').focus();
+              $('.input-floor').hide();
+            } else {
+              $('.ptype-sub').show().find('input').focus();
+              $('.active-group.sell').hide();
+              $('.input-floor').show();
+            }
+          });
+        } else {
+          $('.active-group.sell').hide();
+        }
+        // 토지일 경우,
+        $('input[name="ptype"]').on('click', function () {
+          var ptypeId = $(this).attr('id');
+          if (ptypeId == 'type7') {
+            $('.input-floor').hide();
+          } else {
+            $('.input-floor').show();
+          }
+        });
+        // 기타일 경우
+      } else {
+        $('.active-group.ptype').hide();
+        $('.active-group.sell').hide();
+      }
+    })
+
+
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

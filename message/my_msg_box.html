@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 나의 쪽지함</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>나의 쪽지함</h1>
+        </div>
+        <div>
+          <button type="button" class="icon icon-menu_grey" id="dropMenu">
+            <span hidden>편집메뉴</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <section class="drop-menu">
+      <div class="drop-edit">
+        <a href="#">전체선택</a>
+      </div>
+    </section>
+
+    <header class="d-flex message message-nav">
+      <button type="button" class="btn btn-outline btn-lg active">
+        단체 메세지
+      </button>
+      <button type="button" class="btn btn-outline btn-lg" onclick="location.href='my_report.html'">
+        1:1 채팅방
+      </button>
+    </header>
+
+    <main class="d-flex h-100 flex-column fixed fixed-message bg-grey-two">
+      <div class="container mt-3" id="expand">
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item1">
+            <label class="custom-control-label" for="item1">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span>
+                &nbsp;
+                <div class="badge badge-num">2</div>
+                <!-- <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span> -->
+              </div>
+              <div class="col pr-2 text-right">오후 2:40</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산 외 98명</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item2">
+            <label class="custom-control-label" for="item2">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>1.4k</span>
+                &nbsp;
+                <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span>
+              </div>
+              <div class="col pr-2 text-right">오후 2:40</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산 외 98명</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item3">
+            <label class="custom-control-label" for="item3">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>1.1k</span>
+                &nbsp;
+                <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span>
+              </div>
+              <div class="col pr-2 text-right">오후 2:40</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산 외 98명</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item4">
+            <label class="custom-control-label" for="item4">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span>
+                &nbsp;
+                <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span>
+              </div>
+              <div class="col pr-2 text-right">20.10.01</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산 외 98명</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item5">
+            <label class="custom-control-label" for="item5">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span>
+                &nbsp;
+                <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span>
+              </div>
+              <div class="col pr-2 text-right">20.10.01</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item5">
+            <label class="custom-control-label" for="item5">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span>
+                &nbsp;
+                <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span>
+              </div>
+              <div class="col pr-2 text-right">20.10.01</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item5">
+            <label class="custom-control-label" for="item5">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto d-flex align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span>
+                &nbsp;
+                <span class="icon icon-pin_grey icon-sm"></span>
+                <span>115km</span>
+              </div>
+              <div class="col pr-2 text-right">20.10.01</div>
+            </div>
+            <div class="row no-gutters mt-3">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지">
+                </div>
+              </div>
+              <div class="col-13 ml-2">
+                <p class="card-subhead">부잇부동산</p>
+                <div class="text-truncate">
+                  <span>안녕하세요? 주변 괜찮고 편리하고 간편한 매물 좀 보여주세요</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <section class="fixed-bottom-button">
+      <button type="button" class="btn btn-primary btn-rect" onclick="itemDelete();">삭제하기</button>
+    </section>
+
+    <!-- 하단 고정 바  -->
+    <footer class="bottom-bar-nav fixed-bottom">
+  <div class="container px-0">
+    <nav class="d-flex align-items-center justify-content-between flex-nowrap">
+      <button type="button" class="icon icon-home_grey active">
+        <span>홈</span>
+      </button>
+      <!-- <button type="button" class="icon icon-mailopen_grey">
+        <span>쪽지문의</span>
+      </button> -->
+      <button type="button" class="icon icon-community_grey" onclick="location.href='/community/comm_home.html'">
+        <span>커뮤니티</span>
+      </button>
+      <button type="button" class="icon icon-like_grey" onclick="location.href='/message/co_work_home.html'">
+        <span>찜목록</span>
+      </button>
+      <button type="button" class="icon icon-mail_grey">
+        <span>부잇챗</span>
+      </button>
+      <button type="button" class="icon icon-user_grey">
+        <span>설정</span>
+      </button>
+    </nav>
+  </div>
+</footer>
+
+  </div>
+
+  <!-- 팝업 프로필 -->
+    <div class="popup">
+    <button type="button" class="icon icon-close_dgrey close">
+      <span hidden>닫기</span>
+    </button>
+    <div class="popup-body">
+      <section class="d-flex flex-column align-items-center justify-content-center">
+        <h1>부잇부동산</h1>
+        <div class="userthumb userthumb-lg mt-3">
+          <img src="/images/demo_profile.jpg" alt="프로필이미지">
+        </div>
+        <div class="likeit mt-3">
+          <button type="button" class="icon icon-like_grey likeit">
+            <span hidden>좋아요</span>
+          </button>
+          <span class="likecount ml-1">152</span>
+        </div>
+      </section>
+      <section class="container mt-4 seller-info">
+        <p>
+          <span class="">이름</span>
+          <span>김부잇</span>
+        </p>
+        <p>
+          <span>거리</span>
+          <span>5 km</span>
+        </p>
+        <p>
+          <span>등록번호</span>
+          <span>123392334</span>
+        </p>
+        <p>
+          <span>주소</span>
+          <span>완산구 효자동3가 1080-1 전주대학교 본관 1층 147호 디딤스토리</span>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // ui swiper
+    let touchstartX = 0;
+    let touchstartY = 0;
+    let touchendX = 0;
+    let touchendY = 0;
+
+    const touchList = document.getElementById('expand');
+
+    touchList.addEventListener('touchstart', function (event) {
+      touchstartX = event.changedTouches[0].screenX;
+    }, false);
+    touchList.addEventListener('touchend', function (event) {
+      touchendX = event.changedTouches[0].screenX;
+      handleGesture();
+    }, false);
+
+    function handleGesture() {
+      if (touchendX < touchstartX) {
+        console.log('Swiped left');
+        touchList.classList.remove('show');
+      }
+      if (touchendX > touchstartX) {
+        console.log('Swiped right');
+        touchList.classList.add('show');
+      }
+    }
+
+    // ios 클릭이벤트 지연 문제 처리 함수
+    // var clickEvent = (function () {
+    //   if ('ontouchstart' in document.documentElement === true) {
+    //     return 'touchstart';
+    //   } else {
+    //     return 'click';
+    //   }
+    // })();
+
+    $('#dropMenu').on('click', function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (!status) {
+        $('.drop-menu').addClass('show');
+      } else {
+        $('.drop-menu').removeClass('show');
+      }
+    })
+    $('.drop-edit > a').on('click', function () {
+      let check_status = $('.custom-control-input').is(':checked');
+      if (check_status) {
+        $('.custom-control-input').prop('checked', false);
+        $('.drop-menu').removeClass('show').find('a').text('전체선택');
+        $(".fixed-bottom-button, .fixed-double").removeClass('show');
+      } else {
+        $('.custom-control-input').prop('checked', true);
+        $('.drop-menu').removeClass('show').find('a').text('전체해제');
+        $('#expand').addClass('show');
+        $(".fixed-bottom-button, .fixed-double").addClass('show');
+      }
+    })
+
+    $(".custom-control-input").on("change", function (e) {
+      const isOn = e.currentTarget.checked;
+      if (isOn) {
+        $(".fixed-bottom-button, .fixed-double").addClass('show');
+      } else {
+        $(".fixed-bottom-button, .fixed-double").removeClass('show');
+      }
+    })
+
+    // 삭제하기
+    function itemDelete() {
+      swal({
+        title: "삭제하기",
+        text: "채팅 내용이 모두 삭제됩니다",
+        confirmButtonText: '확인',
+        confirmButtonColor: '#4dabf7',
+        cancelButtonText: '취소',
+        // newer version
+        cancel: {
+          text: "취소",
+          value: null,
+          visible: false,
+          className: "",
+          closeModal: true,
+        },
+      });
+    }
+
+    // Popup profile close
+    $('.userthumb').on('click', function () {
+      $('.popup').addClass('show');
+    })
+    $('.popup .close').on('click', function () {
+      $('.popup').removeClass('show');
+    })
+
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

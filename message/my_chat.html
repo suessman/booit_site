@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 쪽지 발송</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- Image Pinch-zoom -->
+  <script src="https://unpkg.com/pinch-zoom-js"></script>
+  <script src="/js/waitforimages.js"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- 상단 고정바 --> <header class="top-bar">
+  <nav class="d-flex align-items-center justify-content-between">
+    <div>
+      <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+        <span class="invisible">뒤로가기</span>
+      </button>
+    </div>
+    <div class="text-center strcut">
+      <h1 class="strcut d-block">부잇부동산 asdfasdf asdf asdf asdf asdf asdfasdfasdfasdf asdf</h1>
+    </div>
+    <div>
+      <button type="button" class="icon icon-like_grey mr-2 likeit">
+        <span hidden>좋아요</span>
+      </button>
+      <button type="button" class="icon icon-menu_grey" id="dropMenu">
+        <span hidden>편집메뉴</span>
+      </button>
+    </div>
+  </nav>
+</header> <section class="drop-menu">
+      <div class="drop-edit">
+        <a href="#">차단하기</a>
+        <a href="./my_report.html">신고하기</a>
+        <a href="#">채팅방 나가기</a>
+      </div>
+    </section>
+    <main class="d-flex h-100 flex-column fixed fixed-chat bg-chatblue">
+      <div class="container pt-3 chat-container">
+        <div class="chat-fixed-notice">
+          <article class="chat-notice">
+            <button type="button" class="icon icon-down_white notice-drop">
+              <span class="sr-only">열기/닫기</span>
+            </button>
+            <ol>
+              <li>부동산 관련 (매도,매수,임대,임차,개발,투자,협업등) 대화외의 욕설,비방,불법판매등의 불건전한 내용이 발견될 경우 이용정지 조치를 취하므로 반드시 주의를 부탁드립니다.
+              </li>
+              <li>단순 채팅으로 부동산의 주소까지 요구하는 일은 자제바라며 정확한 세부내용은 대면을 통한 현장 확인후 계약으로 진행하시기 바랍니다.
+              </li>
+              <li>부동산 계약은 개업공인중개사와 진행하시기 바랍니다.
+              </li>
+            </ol>
+            <button type="button" class="btn btn-block btn-notice notice-drop mt-3">접어두기</button>
+          </article>
+        </div>
+        <!-- <article class="chat-notice text-center">
+          <p> 1. 부동산 관련 (매도,매수,임대,임차,개발,투자,협업등) 대화외의 욕설,비방,불법판매등의 불건전한 내용이 발견될 경우 이용정지 조치를 취하므로 반드시 주의를 부탁드립니다. </p>
+          <p> 2. 단순 채팅으로 부동산의 주소까지 요구하는 일은 자제바라며 정확한 세부내용은 대면을 통한 현장 확인후 계약으로 진행하시기 바랍니다. </p>
+          <p> 3. 부동산 계약은 개업공인중개사와 진행하시기 바랍니다. </p>
+        </article> -->
+        <div class="chat-date"> 2020년 10월 20일 </div>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div> 안녕하세요? 혁신도시 대방상가 분양팀장 홍길동입니다. 잔여 상가 분양건에 대하여 최초분양가 대비 20% 할인분양을 하고 있으니 관심있으신 공인중개사분들께서는 연락주시기 바랍니다. 현재 12호실 남아 있으며 연락주시면 관련 자료 보내드리겠습니다. 010-0000-0000 </div>
+          <div class="mt-2 text-center">
+            <a href="tel:01077226965" class="btn btn-md2 btn-primary">전화걸기</a>
+            <button type="button" class="btn btn-md2 btn-outline ml-2">쪽지보내기</button>
+          </div>
+          <span class="time">11:12</span>
+          <!-- default 하단 노출 , top 클래스 추가시 상단 노출  -->
+          <!-- <div class="pop-edit top">
+            <ul>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-copy icon-copy_white"></i>
+                  <p>복사</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-trash icon-trash_white"></i>
+                  <p>삭제</p>
+                </button>
+              </li>
+            </ul>
+          </div> -->
+        </article>
+        <article class="chat-box send">
+          <div> 탑 </div>
+          <span class="time">11:12</span>
+          <!-- default 하단 노출 , top 클래스 추가시 상단 노출  -->
+          <div class="pop-edit top">
+            <ul>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-copy icon-copy_white"></i>
+                  <p>복사</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-trash icon-trash_white"></i>
+                  <p>삭제</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="chat-box send">
+          <div> 탑 asdfasdf asdfasdf asdfasdf asdf asd</div>
+          <span class="time">11:12</span>
+          <!-- default 하단 노출 , top 클래스 추가시 상단 노출  -->
+          <div class="pop-edit bottom">
+            <ul>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-copy icon-copy_white"></i>
+                  <p>복사</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-trash icon-trash_white"></i>
+                  <p>삭제</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div> 탑 </div>
+          <span class="time">11:12</span>
+          <!-- default 하단 노출 , top 클래스 추가시 상단 노출  -->
+          <div class="pop-edit top">
+            <ul>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-copy icon-copy_white"></i>
+                  <p>복사</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-trash icon-trash_white"></i>
+                  <p>삭제</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div> 바텀 </div>
+          <span class="time">11:12</span>
+          <!-- default 하단 노출 , top 클래스 추가시 상단 노출  -->
+          <div class="pop-edit bottom">
+            <ul>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-copy icon-copy_white"></i>
+                  <p>복사</p>
+                </button>
+              </li>
+              <li>
+                <button class="btn">
+                  <i class="icon icon-trash icon-trash_white"></i>
+                  <p>삭제</p>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </article>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div> 안녕하세요? 혁신도시 </div>
+          <span class="time">11:12</span>
+        </article>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div> 안녕하세요? 혁신도시 </div>
+          <span class="time">11:12</span>
+        </article>
+        <article class="chat-box chat-box-image recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div class="image-box svg-spinner" style="background: url('https://www.teahub.io/photos/full/93-935601_fondos-de-pantalla-hd-4k-horizontal.jpg');" data-imgurl="https://www.teahub.io/photos/full/93-935601_fondos-de-pantalla-hd-4k-horizontal.jpg">
+          </div>
+          <span class="time">15:45</span>
+        </article>
+        <article class="chat-box send">
+          <div> Lorem ipsum dolor sit</div>
+          <span class="time">11:12</span>
+        </article>
+        <article class="chat-box chat-box-image send">
+          <div class="image-box svg-spinner" style="background: url('https://data.1freewallpapers.com/download/the-milky-pink-sea-at-milford-sound-new-zealand-4k-5k.jpg');" data-imgurl="/images/sample2.jpg"></div>
+          <span class="time">15:45</span>
+        </article>
+        <!-- <article class="chat-box chat-box-image send">
+          <div class="image-box svg-spinner" style="background: url('/images/demo_profile.jpg');" data-imgurl="/images/sample2.jpg"></div>
+          <span class="time">15:45</span>
+        </article>
+        <article class="chat-box chat-box-image send unread">
+          <div class="image-box" style="background: url('/images/demo_profile.jpg');" data-imgurl="/images/sample2.jpg"></div>
+          <span class="time">15:45</span>
+        </article>
+        <article class="chat-box send unread">
+          <div>
+            debitis eligendi nesciunt fugit aut aspernatur voluptatum sunt omnis.
+          </div>
+          <span class="time">15:45</span>
+        </article>
+        <article class="chat-box chat-box-image recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div class="image-box" style="background: url('/images/sample.jpg');" data-imgurl="/images/sample2.jpg"></div>
+          <span class="time">15:45</span>
+        </article>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div>
+            안녕하세요?
+            혁신도시 대방상가 분양팀장 홍길동입니다.
+            잔여 상가 분양건에 대하여 최초분양가 대비 20% 할인분양을 하고 있으니
+            관심있으신 공인중개사분들께서는 연락주시기 바랍니다.
+            현재 12호실 남아 있으며 연락주시면 관련 자료 보내드리겠습니다.
+            010-0000-0000
+          </div>
+          <span class="time">11:12</span>
+        </article>    -->
+      </div>
+    </main>
+    <!-- pop Image Container -->
+    <div class="image-popup">
+      <div class="pinch-zoom"></div>
+      <div class="btn-group zoom">
+        <button type="button" class="btn icon-close_white" aria-label="닫기"></button>
+        <a href="#" download="ImageName" class="icon-download_white" title="다운로드"></a>
+      </div>
+    </div>
+    <!-- Loading spinner fullsize -->
+    <!-- 로딩 스피너 사용시 삽입 -->
+    <!-- <div class="spinner-container">
+  <div class="svg-spinner">
+    <span class="sr-only">로딩중...</span>
+  </div>
+</div>
+ -->
+    <!-- 하단 고정 바  -->
+    <!-- <footer class="bottom-chat fixed-bottom">
+  <div class="container">
+    <nav class="d-flex align-items-center justify-content-between">
+      <div class="col-auto px-0">
+        <button type="button" class="icon icon-camera_grey" onclick="attach();">
+          <span hidden>카메라</span>
+        </button>
+        <button type="button" class="icon icon-photo_grey ml-2" onclick="attach();">
+          <span hidden>사진앨범</span>
+        </button>
+      </div>
+      <div class="col pr-0">
+        <div class="form-group position-relative mb-0">
+          <label for="chatInput" hidden>채팅입력</label>
+          <textarea class="form-control form-control-sm" id="chatInput" rows="1"  contenteditable="true"></textarea>
+          <button type="button" class="btn-text btn-text-in">보내기</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="attach" id="attachFile">
+    <section class="attach-bar px-3">
+      <button type="button" class="icon icon-plus_blue">
+        <span hidden>파일추가</span>
+      </button>
+      <button type="button" class="icon icon-upload_blue">
+        <span hidden>파일추가</span>
+      </button>
+    </section>
+    <section class="attach-thumb">
+      <div class="attach-thumb-item" style="background-image: url('../images/demo_profile.jpg');">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+    </section>
+  </div>
+</footer>
+
+<script>
+  // ios 클릭이벤트 지연 문제 처리 함수
+  var clickEvent = (function () {
+    if ('ontouchstart' in document.documentElement === true) {
+      return 'touchstart';
+    } else {
+      return 'click';
+    }
+  })();
+
+  function attach() {
+    var state = document.getElementById("attachFile");
+    state.classList.toggle("show");
+  }
+
+  $(function(){
+    $('.chat-container').on(clickEvent, function(){ 
+      $('#attachFile').removeClass('show');
+    });
+
+    // 입력창 하단 포커싱
+    $("#chatInput").on('focus', function(){
+      $("body, html, .fixed-chat").animate({ scrollTop: $('.fixed-chat').height() }, 400);
+    });
+
+    // 엔터키 입력시 입력창 확장
+    $('#chatInput').keypress(function(e){
+      var key = e.which;
+      if (key == 13) {
+        $(".fixed-chat, .bottom-chat").addClass('expand');
+        $(this).addClass('expand');
+        $("body, html").animate({ scrollTop: $('.fixed-chat').height() }, 300);
+        // return false;
+      }
+    });
+    // 전송버튼 클릭시 입력창 원복 및 입력 내용 지우기
+    $('.btn-text-in').on('click', function(){
+      $(".fixed-chat, .bottom-chat").removeClass('expand');
+      $("#chatInput").removeClass('expand').val("");
+    })
+  })
+
+</script> -->
+    <!-- 하단 고정 바  --> <footer class="bottom-chat fixed-bottom">
+  <div class="container">
+    <nav class="d-flex align-items-center justify-content-between">
+      <div class="col-auto px-0">
+        <button type="button" class="icon icon-plus_dgrey btn" onclick="attach();">
+          <span hidden>통화, 파일첨부</span>
+        </button>
+      </div>
+      <div class="col pr-0">
+        <div class="form-group position-relative mb-0">
+          <label for="chatInput" hidden>채팅입력</label>
+          <textarea class="form-control form-control-sm" id="chatInput" rows="1" contenteditable="true"></textarea>
+          <button type="button" class="btn-text btn-text-in">보내기</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="attach" id="attachFile">
+    <!-- 하단 통화, 파일첨부 UI -->
+    <div class="call-ui">
+      <a href="tel:000-000-0000" class="btn">
+        <i class="icon icon-phonecall_grey sbtn-circle"></i>
+        <div class="mt-2">전화걸기</div>
+      </a>
+      <a href="#;" class="btn" id="fileUp">
+        <i class="icon icon-attach_grey sbtn-circle"></i>
+        <div class="mt-2">파일보내기</div>
+      </a>
+    </div>
+    <div class="attach-ui">
+      <section class="attach-bar px-3">
+        <!-- <input type="file" id="addFile" hidden>
+        <label for="addFile" class="icon icon-plus_blue">
+          <span hidden>파일추가</span>
+        </label> -->
+        <button type="button" class="icon icon-plus_blue">
+          <span hidden>파일추가</span>
+        </button>
+        <button type="button" class="icon icon-upload_blue">
+          <span hidden>파일추가</span>
+        </button>
+      </section>
+      <section class="attach-thumb">
+        <div class="attach-thumb-item" style="background-image: url('../images/demo_profile.jpg');">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+        <div class="attach-thumb-item">
+          <i class="icon icon-delete_grey"></i>
+        </div>
+      </section>
+    </div>
+  </div>
+</footer>
+<script>
+  // ios 클릭이벤트 지연 문제 처리 함수
+  var clickEvent = (function () {
+    if ('ontouchstart' in document.documentElement === true) {
+      return 'touchstart';
+    } else {
+      return 'click';
+    }
+  })();
+
+  // 통화,첨부 ui 열기
+  function attach() {
+    var state = document.getElementById("attachFile");
+    state.classList.toggle("show");
+  }
+
+  $(function () {
+    // 채팅 영역 클릭시 ui 닫기
+    $('.chat-container').on(clickEvent, function () {
+      $('#attachFile, .attach-ui').removeClass('show');
+    });
+
+    $('#fileUp').on('click', function () {
+      $('.attach-ui').addClass('show');
+    })
+
+    // 입력창 하단 포커싱
+    $("#chatInput").on('focus', function () {
+      $("body, html, .fixed-chat").animate({ scrollTop: $('.fixed-chat').height() }, 400);
+    });
+
+    // 엔터키 입력시 입력창 확장
+    $('#chatInput').keypress(function (e) {
+      var key = e.which;
+      if (key == 13) {
+        $(".fixed-chat, .bottom-chat").addClass('expand');
+        $(this).addClass('expand');
+        $("body, html").animate({ scrollTop: $('.fixed-chat').height() }, 300);
+        // return false;
+      }
+    });
+    // 전송버튼 클릭시 입력창 원복 및 입력 내용 지우기
+    $('.btn-text-in').on('click', function () {
+      $(".fixed-chat, .bottom-chat").removeClass('expand');
+      $("#chatInput").removeClass('expand').val("");
+    })
+  })
+
+</script>
+  </div>
+  <!-- 팝업 프로필 -->   <div class="popup">
+    <button type="button" class="icon icon-close_dgrey close">
+      <span hidden>닫기</span>
+    </button>
+    <div class="popup-body">
+      <section class="d-flex flex-column align-items-center justify-content-center">
+        <h1>부잇부동산</h1>
+        <div class="userthumb userthumb-lg mt-3">
+          <img src="/images/demo_profile.jpg" alt="프로필이미지">
+        </div>
+        <div class="likeit mt-3">
+          <button type="button" class="icon icon-like_grey likeit">
+            <span hidden>좋아요</span>
+          </button>
+          <span class="likecount ml-1">152</span>
+        </div>
+      </section>
+      <section class="container mt-4 seller-info">
+        <p>
+          <span class="">이름</span>
+          <span>김부잇</span>
+        </p>
+        <p>
+          <span>거리</span>
+          <span>5 km</span>
+        </p>
+        <p>
+          <span>등록번호</span>
+          <span>123392334</span>
+        </p>
+        <p>
+          <span>주소</span>
+          <span>완산구 효자동3가 1080-1 전주대학교 본관 1층 147호 디딤스토리</span>
+        </p>
+      </section>
+    </div>
+  </div>
+  <script>
+    // Notice Dropdown
+    $('.notice-drop').on('click', function () {
+      $('.chat-notice').toggleClass('open');
+      $('.icon.notice-drop').toggleClass('icon-down_white icon-up_white');
+    })
+
+    // Top drop edit menu
+    $('#dropMenu').on(clickEvent, function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (!status) {
+        $('.drop-menu').addClass('show');
+      } else {
+        $('.drop-menu').removeClass('show');
+      }
+    })
+    // close drop edit
+    $('.bg-chatblue').on(clickEvent, function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (status) $('.drop-menu').removeClass('show');
+    })
+
+    // like button toggle
+    $('.likeit').on(clickEvent, function () {
+      let status = $(this).hasClass('icon-like_orange');
+      console.log(status);
+      if (!status) {
+        $(this).addClass('icon-like_orange');
+      } else {
+        $(this).removeClass('icon-like_orange');
+      }
+    })
+
+    // Popup profile close
+    $('.userthumb').on(clickEvent, function () {
+      $('.popup').addClass('show');
+    })
+    $('.popup .close').on(clickEvent, function () {
+      $('.popup').removeClass('show');
+    })
+
+    // Image Zoom & download Popup
+    $('.image-box').on('click', function () {
+      var status = $('.image-popup').hasClass('active');
+      var imgurl = $(this).data("imgurl");
+      var imgEl = $('<img src="' + imgurl + '" />');
+
+      if (!status) {
+        $('.image-popup').addClass('active').find('.pinch-zoom').append(imgEl);
+        $('.icon-download_white').attr({
+          'href': imgurl,
+          'download': imgurl
+        });
+        $('main').modal('show');
+        var el = document.querySelector('div.pinch-zoom');
+        new PinchZoom.default(el, {
+          minZoom: 1,
+        });
+      }
+      // Close Image Popup
+      $('.icon-close_white').on('click', function () {
+        $('.image-popup').removeClass('active').children('.pinch-zoom-container').remove();
+        $('.image-popup').prepend('<div class="pinch-zoom"></div>');
+        $('main').modal('hide');
+      })
+    })
+
+    // Loading progress for Image items
+    $('.image-box').waitForImages({
+      hasImgProperties: ['backgroundImage'],
+      finished: function () {
+        $('.image-box').removeClass('svg-spinner');
+      },
+      each: function () {
+      },
+      waitForAll: true
+    })
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

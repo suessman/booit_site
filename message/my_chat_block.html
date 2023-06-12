@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>부잇! - 쪽지 발송</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+  <nav class="d-flex align-items-center justify-content-between">
+    <div>
+      <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+        <span class="invisible">뒤로가기</span>
+      </button>
+    </div>
+    <div class="text-center strcut">
+      <h1 class="strcut d-block">부잇부동산 asdfasdf asdf asdf asdf asdf asdfasdfasdfasdf asdf</h1>
+    </div>
+    <div>
+      <button type="button" class="icon icon-like_grey mr-2 likeit">
+        <span hidden>좋아요</span>
+      </button>
+      <button type="button" class="icon icon-menu_grey" id="dropMenu">
+        <span hidden>편집메뉴</span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+    <section class="drop-menu">
+      <div class="drop-edit">
+        <a href="#">차단하기</a>
+        <a href="./my_report.html">신고하기</a>
+        <a href="#">채팅방 나가기</a>
+      </div>
+    </section>
+
+    <main class="d-flex h-100 flex-column fixed fixed-chat block bg-chatblue">
+      <div class="container pt-3 chat-container">
+        <div class="chat-date">
+          2020년 10월 20일
+        </div>
+        <article class="chat-box recieve">
+          <div class="profile">
+            <div class="userthumb userthumb-sm2">
+              <a href="#">
+                <img src="/images/demo_profile.jpg" alt="프로필이미지">
+              </a>
+            </div>
+          </div>
+          <div>
+            안녕하세요?
+            혁신도시 대방상가 분양팀장 홍길동입니다.
+            잔여 상가 분양건에 대하여 최초분양가 대비 20% 할인분양을 하고 있으니
+            관심있으신 공인중개사분들께서는 연락주시기 바랍니다.
+            현재 12호실 남아 있으며 연락주시면 관련 자료 보내드리겠습니다.
+            010-0000-0000
+          </div>
+          <span class="time">11:12</span>
+        </article>        
+        <article class="chat-box send">
+          <div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt facere delectus praesentium. Sapiente, inventore. Natus odio eos laboriosam reiciendis iusto eum exercitationem laborum atque aperiam, fugiat hic 
+          </div>
+          <span class="time">11:12</span>
+        </article>
+        <article class="chat-box send unread">
+          <div>
+            debitis eligendi nesciunt fugit aut aspernatur voluptatum sunt omnis.
+          </div>
+          <span class="time">15:45</span>
+        </article>
+        <article class="chat-box send unread">
+          <div>
+            last chat box
+          </div>
+          <span class="time">23:01</span>
+        </article>
+      </div>
+    </main>
+
+    <!-- 차단 정보 -->
+    <section class="chat-block-info">
+      <p>
+        차단한 대화 상대와 대화가 불가능합니다 
+      </p>
+    </section>
+    
+
+  </div>
+
+  <!-- 팝업 프로필 -->
+    <div class="popup">
+    <button type="button" class="icon icon-close_dgrey close">
+      <span hidden>닫기</span>
+    </button>
+    <div class="popup-body">
+      <section class="d-flex flex-column align-items-center justify-content-center">
+        <h1>부잇부동산</h1>
+        <div class="userthumb userthumb-lg mt-3">
+          <img src="/images/demo_profile.jpg" alt="프로필이미지">
+        </div>
+        <div class="likeit mt-3">
+          <button type="button" class="icon icon-like_grey likeit">
+            <span hidden>좋아요</span>
+          </button>
+          <span class="likecount ml-1">152</span>
+        </div>
+      </section>
+      <section class="container mt-4 seller-info">
+        <p>
+          <span class="">이름</span>
+          <span>김부잇</span>
+        </p>
+        <p>
+          <span>거리</span>
+          <span>5 km</span>
+        </p>
+        <p>
+          <span>등록번호</span>
+          <span>123392334</span>
+        </p>
+        <p>
+          <span>주소</span>
+          <span>완산구 효자동3가 1080-1 전주대학교 본관 1층 147호 디딤스토리</span>
+        </p>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // ios 클릭이벤트 지연 문제 처리 함수
+    var clickEvent = (function () {
+      if ('ontouchstart' in document.documentElement === true) {
+        return 'touchstart';
+      } else {
+        return 'click';
+      }
+    })();
+
+    // Top drop edit menu
+    $('#dropMenu').on(clickEvent, function() {
+      let status = $('.drop-menu').hasClass('show');
+      if(!status) {
+        $('.drop-menu').addClass('show');
+      } else {
+        $('.drop-menu').removeClass('show');
+      }
+    })
+    // close drop edit
+    $('.bg-chatblue').on(clickEvent, function() {
+      let status = $('.drop-menu').hasClass('show');
+      if(status) $('.drop-menu').removeClass('show');
+    })
+
+    // like button toggle
+    $('.likeit').on(clickEvent, function() {
+      let status = $(this).hasClass('icon-like_orange');
+      console.log(status);
+      if(!status) {
+        $(this).addClass('icon-like_orange');
+      } else {
+        $(this).removeClass('icon-like_orange');
+      }
+    })
+
+    // Popup profile close
+    $('.userthumb').on(clickEvent, function() {
+      $('.popup').addClass('show');
+    })
+    $('.popup .close').on(clickEvent, function() {
+      $('.popup').removeClass('show');
+    })
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

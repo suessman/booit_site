@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>부잇! - 가입하기</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+  <nav class="d-flex align-items-center justify-content-between">
+    <div>
+      <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+        <span class="invisible">뒤로가기</span>
+      </button>
+    </div>
+    <div class="text-center">
+      <h1>이메일 인증</h1>
+    </div>
+    <div>&nbsp;</div>
+  </nav>
+</header>
+
+    
+    <main class="d-flex h-100 flex-column fixed-wrap">
+      <div class="container mt-4">
+        <section class="mt-4">
+          <form>
+            <label for="mailId" class="title-label">이메일을 입력하세요</label>
+            <div class="form-row">
+              <div class="col-8 mx-0">
+                <input type="text" class="form-control" id="mailId">
+              </div>
+              <div class="col-1 mx-0">@</div>
+              <div class="col-7 mx-0"><input type="email" class="form-control" id="mailProv"></div>
+            </div>
+          </form>
+          <button type="button" class="btn btn-outline btn-lg btn-block mt-4" onclick="alertEmail()">이메일로 인증번호 받기</button>
+        </section>
+        <section class="text-center my-5">
+          <a href="#" class="text-link" data-toggle="modal" data-target="#agree1">이용약관</a> 및 <a href="#" class="text-link" data-toggle="modal" data-target="#agree2">개인정보</a> 취급방침
+        </section>
+        <section>
+          <div class="form-group">
+            <input type="text" class="form-control" id="nickname" placeholder="인증번호 입력">
+          </div>
+          <button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href='./mod_company.html'">확인</button>
+        </section>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="agree1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">이용약관</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<pre>
+제 1장 총칙
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sequi nihil, 
+qui sed architecto ut doloremque! Nihil, quia delectus? Adipisci vitae odio,
+ pariatur itaque alias voluptate quasi aliquid dignissimos eaque necessitatibus. 
+ Inventore distinctio magnam, ea commodi libero dolores quae consectetur earum praesentium
+  sint perspiciatis, quidem reprehenderit deleniti quas velit
+   magni! Aut nemo incidunt assumenda perferendis quidem quos asperiores q
+   uisquam voluptate cum neque? Harum laboriosam quia quibusdam, tenetur sunt ad? Illo 
+   explicabo, tempora consequuntur porro odio iure optio 
+   maiores laboriosam recusandae? Ut unde voluptatum accusamus 
+   quos cupiditate odit accusantium, officiis dolore, praesentium ipsam dignissimos, 
+   sit quis. Cupiditate illo voluptatum ratione esse?
+Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Mollitia aliquid numquam et repellat sapiente. 
+Possimus doloremque magnam odit ea, delectus quisquam dolorem consectetur. 
+Nisi minus eaque fugit aperiam eveniet reiciendis natus doloremque id neque ex, 
+quam cupiditate delectus vel perferendis mollitia voluptas maiores 
+totam repellat et quae earum in officia! Iusto labore nam, 
+debitis voluptatem accusantium inventore at. 
+Hic molestiae explicabo iure dolore culpa a rem 
+eligendi commodi voluptatem neque, dolor, facilis ipsum 
+quos necessitatibus minus delectus suscipit mollitia, cum fuga. 
+Voluptates tenetur eos tempora. Dolorem temporibus 
+praesentium vero hic, consectetur voluptatibus magnam omnis 
+in voluptatum laborum quidem doloremque velit non, neque beatae provident? 
+Error odit nisi inventore perferendis labore incidunt, fuga 
+voluptate. Natus, amet ipsum. Iure, autem eius fuga sit magni 
+nostrum laboriosam fugiat voluptatem optio dolorum dolorem 
+laudantium odit ad libero beatae ab vel minima! Suscipit 
+tempora eum ab impedit porro. Assumenda enim obcaecati est eum ipsum eaque molestias, corporis, nihil in aliquam excepturi quod necessitatibus quae. Quo repellat nemo nihil consectetur excepturi quidem eos soluta temporibus laborum at. Ipsum perspiciatis omnis, doloribus sed, at corporis quam animi aut dignissimos aliquam sit provident rerum dolor! Cupiditate accusamus quas nam ratione, quibusdam excepturi ea placeat vel aspernatur eveniet officiis!
+</pre>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="agree2" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">개인정보</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+<pre>
+제 1장 총칙
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure sequi nihil, 
+qui sed architecto ut doloremque! Nihil, quia delectus? Adipisci vitae odio,
+ pariatur itaque alias voluptate quasi aliquid dignissimos eaque necessitatibus. 
+ Inventore distinctio magnam, ea commodi libero dolores quae consectetur earum praesentium
+  sint perspiciatis, quidem reprehenderit deleniti quas velit
+   magni! Aut nemo incidunt assumenda perferendis quidem quos asperiores q
+   uisquam voluptate cum neque? Harum laboriosam quia quibusdam, tenetur sunt ad? Illo 
+   explicabo, tempora consequuntur porro odio iure optio 
+   maiores laboriosam recusandae? Ut unde voluptatum accusamus 
+   quos cupiditate odit accusantium, officiis dolore, praesentium ipsam dignissimos, 
+   sit quis. Cupiditate illo voluptatum ratione esse?
+Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Mollitia aliquid numquam et repellat sapiente. 
+Possimus doloremque magnam odit ea, delectus quisquam dolorem consectetur. 
+Nisi minus eaque fugit aperiam eveniet reiciendis natus doloremque id neque ex, 
+quam cupiditate delectus vel perferendis mollitia voluptas maiores 
+totam repellat et quae earum in officia! Iusto labore nam, 
+debitis voluptatem accusantium inventore at. 
+Hic molestiae explicabo iure dolore culpa a rem 
+eligendi commodi voluptatem neque, dolor, facilis ipsum 
+quos necessitatibus minus delectus suscipit mollitia, cum fuga. 
+Voluptates tenetur eos tempora. Dolorem temporibus 
+praesentium vero hic, consectetur voluptatibus magnam omnis 
+in voluptatum laborum quidem doloremque velit non, neque beatae provident? 
+Error odit nisi inventore perferendis labore incidunt, fuga 
+voluptate. Natus, amet ipsum. Iure, autem eius fuga sit magni 
+nostrum laboriosam fugiat voluptatem optio dolorum dolorem 
+laudantium odit ad libero beatae ab vel minima! Suscipit 
+tempora eum ab impedit porro. Assumenda enim obcaecati est eum ipsum eaque molestias, corporis, nihil in aliquam excepturi quod necessitatibus quae. Quo repellat nemo nihil consectetur excepturi quidem eos soluta temporibus laborum at. Ipsum perspiciatis omnis, doloribus sed, at corporis quam animi aut dignissimos aliquam sit provident rerum dolor! Cupiditate accusamus quas nam ratione, quibusdam excepturi ea placeat vel aspernatur eveniet officiis!
+</pre>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-primary btn-md" data-dismiss="modal">확인</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function alertEmail() {
+      swal({
+        title: "완료",
+        text: "인증번호가 메일로 전송되었습니다",
+        confirmButtonText: '확인',
+        confirmButtonColor: '#4dabf7',
+      });
+    }
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>

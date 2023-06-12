@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>부잇! - 원클릭 쪽지 문의</title>
+  <meta name="description" content=""> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+  <!-- Image Pinch-zoom -->
+  <script src="https://unpkg.com/pinch-zoom-js"></script>
+  <!-- <script src="/js/waitforimages.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.waitforimages/2.4.0/jquery.waitforimages.min.js" crossorigin="anonymous"></script>
+  <!-- select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex h-100 flex-column">
+    <!-- header -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1 class="d-block">원클릭 쪽지문의</h1>
+          <!-- 쪽지문의일 경우 -->
+          <!-- <h1 class="d-block">쪽지문의</h1> -->
+        </div>
+        <div>
+        </div>
+      </nav>
+    </header>
+    <!--// header -->
+    <main class="d-flex h-100 flex-column fixed-wrap bg-grey-two">
+
+      <section class="container mt-4">
+        <div class="progress steps">
+          <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+      </section>
+      <p class="heading text-center mt-4">원하시는 금액을 알려주세요.</p>
+
+      <div class="option-form month-price mt-4">
+        <section class="container">
+          <label for="price1" class="title-label-bold">금액</label>
+          <div class="form-group">
+            <input type="number" id="price1" class="form-control" value="" placeholder="금액">
+          </div>
+          <div class="form-row">
+            <div class="col offset-2 px-1">
+              <button type="button" id="reset" class="btn btn-block btn-md2 btn-normal" onclick="resetPrice('price1')">리셋</button>
+            </div>
+            <div class="col px-1">
+              <button type="button" id="plusM" class="btn btn-block btn-md2 btn-outline-white" onclick="setPrice('price1', 'HM')">1억</button>
+            </div>
+            <div class="col px-1">
+              <button type="button" id="plusT" class="btn btn-block btn-md2 btn-outline-white" onclick="setPrice('price1', '5M')">5천</button>
+            </div>
+            <div class="col px-1">
+              <button type="button" id="plusT" class="btn btn-block btn-md2 btn-outline-white" onclick="setPrice('price1', 'TM')">1천</button>
+            </div>
+            <div class="col">
+              <button type="button" id="plusH" class="btn btn-block btn-md2 btn-outline-white" onclick="setPrice('price1', 'M')">1백</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+
+    <footer class="bottom-step fixed-bottom">
+      <div class="container py-2">
+        <div class="form-row">
+          <div class="col-16">
+            <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='/message/oneclick_land_step3.html'">다음</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // select2
+    $('.select2').select2({
+      width: '100%'
+    });
+
+    // 시세대로
+    $('#averageRule').on('click', function () {
+      var checked = $(this).prop('checked');
+      if (checked) {
+        $('.form-control').prop('disabled', true);
+        $('.btn-md2').prop('disabled', true);
+      } else {
+        $('.form-control').prop('disabled', false);
+        $('.btn-md2').prop('disabled', false);
+      }
+    })
+
+    // 입력폼 선택
+    $('input[name="cat"]').on('click', function () {
+      var selectId = $(this).attr('id');
+      console.log(selectId + '-price')
+      $('.option-form').hide();
+      $('.' + selectId + '-price').show();
+    })
+
+    // 가격 입력 도구
+    function setPrice(input, range) {
+      var inputEl = $('#' + input);
+      var inputVal = $(inputEl).val();
+
+      if (range == '5B') {
+        var setVal = Number(inputVal) + Number(500000000);
+      }
+      if (range == 'HM') {
+        var setVal = Number(inputVal) + Number(100000000);
+      }
+      else if (range == '5M') {
+        var setVal = Number(inputVal) + Number(50000000);
+      }
+      else if (range == 'TM') {
+        var setVal = Number(inputVal) + Number(10000000);
+      }
+      else if (range == 'M') {
+        var setVal = Number(inputVal) + Number(1000000);
+      }
+      else if (range == '5T') {
+        var setVal = Number(inputVal) + Number(500000);
+      }
+      else if (range == 'HT') {
+        var setVal = Number(inputVal) + Number(100000);
+      }
+      else if (range == 'TT') {
+        var setVal = Number(inputVal) + Number(10000);
+      }
+      $(inputEl).val(setVal);
+    }
+    function resetPrice(input) {
+      var inputEl = $('#' + input);
+      $(inputEl).val('');
+    }
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

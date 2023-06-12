@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>부잇! - 주소로 주변 부동산 검색</title>
+  <meta name="description" content="" /> <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+
+<body>
+  <div class="d-flex flex-column h-100 justify-content-end">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>주변 부동산 검색</h1>
+        </div>
+        <div>
+          <button type="button" class="icon icon-guide_grey" id="guidePopup">
+            <span hidden="">사용가이드</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- <section class="drop-menu left">
+      <div class="drop-edit range-select">
+        <a href="#;">1km 이내 선택</a>
+        <a href="#;">5km 이내 선택</a>
+        <a href="#;">10km 이내 선택</a>
+      </div>
+    </section> -->
+    <div class="container-fluid mt-3 map-search">
+      <div class="form-group position-relative mb-0">
+        <input type="text" class="form-control pr-5" id="inputAddress" placeholder="주소를 입력해주세요" />
+        <button type="button" class="btn-icon icon icon-search_blue" onclick="findAddr()">
+          <span hidden>검색</span>
+        </button>
+      </div>
+    </div>
+    <section class="map" id="mapArea">
+      <i class="pin pin-here">
+        <span hidden>내위치</span>
+      </i>
+    </section>
+    <section class="map-position-button">
+      <button type="button" class="btn btn-primary btn-rect"> 이 위치로 지정 </button>
+    </section>
+    <main class="d-flex h-100 flex-column fixed fixed-slide bg-grey-two center" id="expandup">
+      <header class="container-fluid list-control list-child" id="touchbar">
+        <div class="toggle-handle">
+          <i class="icon icon-upbold_blue"></i>
+          <i class="icon icon-downbold_blue"></i>
+        </div>
+      </header>
+      <div class="container mt-3 show" id="expand">
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item1" />
+            <label class="custom-control-label" for="item1">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <span class="badge badge-primary">접속</span>
+                <!-- <span class="badge badge-secondary">접속</span> -->
+              </div>
+              <div class="col pl-2 strcut">가3453-03-1234 asdfasdf asdfsdfasdf asd</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>995km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2 overflow-hidden">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <a href="#;" class="strcut card-subhead">부잇부동산 asdfas asdfas asdfasdfasdfasdf asdf </a>
+                <div class="d-flex align-items-center store-info">
+                  <i class="icon icon-medal_orange"></i>
+                  <i class="icon icon-medal_blue"></i>
+                  <i class="icon icon-medal_grey"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가 asdfas asdf asdf asdfasdfasdf</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item2" />
+            <label class="custom-control-label" for="item2">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <span class="badge badge-primary">접속</span>
+                <!-- <span class="badge badge-secondary">접속</span> -->
+              </div>
+              <div class="col pl-2 strcut">123456778</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>2.1k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>5km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <p class="card-subhead strcut">부잇부동산</p>
+                <div class="d-flex align-items-center">
+                  <i class="icon icon-medal_orange"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item3" />
+            <label class="custom-control-label" for="item3">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <span class="badge badge-primary">접속</span>
+                <!-- <span class="badge badge-secondary">접속</span> -->
+              </div>
+              <div class="col pl-2 strcut">123456778</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>3k</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>5km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <p class="card-subhead strcut">부잇부동산</p>
+                <div class="d-flex align-items-center">
+                  <i class="icon icon-medal_orange"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item4" />
+            <label class="custom-control-label" for="item4">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <!-- <span class="badge badge-primary">접속</span> -->
+                <span class="badge badge-secondary">접속</span>
+              </div>
+              <div class="col pl-2 strcut">123456778</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>5km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <p class="card-subhead strcut">부잇부동산</p>
+                <div class="d-flex align-items-center">
+                  <i class="icon icon-medal_orange"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item5" />
+            <label class="custom-control-label" for="item5">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <span class="badge badge-primary">접속</span>
+                <!-- <span class="badge badge-secondary">접속</span> -->
+              </div>
+              <div class="col pl-2 strcut">123456778</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>5km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <p class="card-subhead strcut">부잇부동산</p>
+                <div class="d-flex align-items-center">
+                  <i class="icon icon-medal_orange"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item6" />
+            <label class="custom-control-label" for="item6">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <span class="badge badge-primary">접속</span>
+                <!-- <span class="badge badge-secondary">접속</span> -->
+              </div>
+              <div class="col pl-2 strcut">123456778</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>5km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <p class="card-subhead strcut">부잇부동산</p>
+                <div class="d-flex align-items-center">
+                  <i class="icon icon-medal_orange"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card card-check border-0">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="item7" />
+            <label class="custom-control-label" for="item7">
+              <span hidden>선택</span>
+            </label>
+          </div>
+          <div class="card-body px-2 py-2">
+            <div class="row no-gutters">
+              <div class="col-auto">
+                <span class="badge badge-primary">접속</span>
+                <!-- <span class="badge badge-secondary">접속</span> -->
+              </div>
+              <div class="col pl-2 strcut">123456778</div>
+              <div class="col-auto d-flex justify-content-end align-items-center">
+                <span class="icon icon-like_grey icon-sm"></span>
+                <span>999</span> &nbsp; <span class="icon icon-pin_grey icon-sm"></span>
+                <span>5km</span>
+              </div>
+            </div>
+            <div class="row no-gutters mt-2">
+              <div class="col-auto">
+                <div class="userthumb userthumb-sm2">
+                  <img src="/images/demo_profile.jpg" alt="프로필이미지" />
+                </div>
+              </div>
+              <div class="col pl-2">
+                <p class="card-subhead strcut">부잇부동산</p>
+                <div class="d-flex align-items-center">
+                  <i class="icon icon-medal_orange"></i>
+                  <span class="divider-v">김부잇</span>
+                  <span class="strcut">효자동2가</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+    <section class="fixed-bottom-button">
+      <button type="button" class="btn btn-primary btn-rect"> 쪽지보내기 </button>
+    </section>
+    <!-- 하단 고정 바  -->
+  </div>
+  <!-- 팝업 프로필 -->   <div class="popup">
+    <button type="button" class="icon icon-close_dgrey close">
+      <span hidden>닫기</span>
+    </button>
+    <div class="popup-body">
+      <section class="d-flex flex-column align-items-center justify-content-center">
+        <h1>부잇부동산</h1>
+        <div class="userthumb userthumb-lg mt-3">
+          <img src="/images/demo_profile.jpg" alt="프로필이미지">
+        </div>
+        <div class="likeit mt-3">
+          <button type="button" class="icon icon-like_grey likeit">
+            <span hidden>좋아요</span>
+          </button>
+          <span class="likecount ml-1">152</span>
+        </div>
+      </section>
+      <section class="container mt-4 seller-info">
+        <p>
+          <span class="">이름</span>
+          <span>김부잇</span>
+        </p>
+        <p>
+          <span>거리</span>
+          <span>5 km</span>
+        </p>
+        <p>
+          <span>등록번호</span>
+          <span>123392334</span>
+        </p>
+        <p>
+          <span>주소</span>
+          <span>완산구 효자동3가 1080-1 전주대학교 본관 1층 147호 디딤스토리</span>
+        </p>
+      </section>
+    </div>
+  </div>
+  <!-- 초기 첫 로딩시 가이드 노출-->
+  <!-- <div class="guide" onclick="closeGuide()"> -->
+<div class="guide" id="closeGuide">
+  <div class="guide-body h-100">
+    <div class="d-flex h-50 flex-column align-items-center justify-content-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 21 36">
+        <path fill="#fff" fill-rule="nonzero"
+          d="M17.75 18.175c-.74-.45-1.508-.622-2.108-.68-.773-.94-1.885-1.452-3.168-1.452-.281 0-.568.024-.856.073-.76-.79-1.807-1.22-2.985-1.22h-.066L8.562 11c0-.895-.38-1.693-1.067-2.247C6.893 8.267 6.097 8 5.255 8c-.903 0-1.769.317-2.377.87-.61.555-.932 1.294-.93 2.137l.007 5.623.004 3.568c-.883.429-1.494 1.108-1.777 1.982-.437 1.347-.089 3.082 1.063 5.304.758 1.462 1.667 2.741 2.103 3.324l.193 2.334C3.627 34.184 4.596 35 5.747 35l9.157-.01c1.105-.002 2.047-.753 2.19-1.747l.356-2.46c2.162-3.078 2.955-6.268 2.357-9.482-.326-1.75-1.299-2.666-2.057-3.126zm-1.543 12.018c-.066.092-.11.197-.125.306l-.373 2.579c-.053.368-.398.62-.807.62l-9.154-.012h-.001c-.426 0-.78-.276-.813-.662l-.205-2.463c-.01-.131-.059-.25-.14-.358C3.75 29.097-.93 22.648 2.86 21.21c.302-.115.498-.381.497-.678l-.013-9.527c-.001-1.158.955-1.737 1.911-1.737.954 0 1.909.578 1.91 1.733l.006 4.472c0 .414.372.738.812.738.042 0 .085-.003.128-.009.162-.023.338-.038.522-.038.687 0 1.49.21 2.105.983.152.192.397.297.65.297.072 0 .144-.008.215-.025.24-.058.542-.107.871-.107.718 0 1.566.235 2.19 1.129.126.18.339.29.573.299.825.027 2.742.355 3.192 2.772.417 2.24.225 5.246-2.222 8.68z"
+          transform="translate(-35 -144) translate(36 145)" />
+        <path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M0 2L2 5.464" transform="translate(-35 -144) translate(36 145)" />
+        <path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M8 2L10 5.464" transform="translate(-35 -144) translate(36 145) matrix(-1 0 0 1 18 0)" />
+        <path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M5 0L5 4" transform="translate(-35 -144) translate(36 145)" />
+      </svg>
+      <p class="mt-3">1. 지도위에 원하시는 위치를 선택해주세요</p>
+    </div>
+    <div class="d-flex flex-column align-items-center justify-content-end mt-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 34 47" class="mt-5">
+        <g fill="none" fill-rule="evenodd">
+          <g transform="translate(-77 -134) translate(78 135)">
+            <path fill="#fff" fill-rule="nonzero"
+              d="M17.75 29.175c-.74-.45-1.508-.622-2.108-.68-.773-.94-1.885-1.452-3.168-1.452-.281 0-.568.024-.856.073-.76-.79-1.807-1.22-2.985-1.22h-.066L8.562 22c0-.895-.38-1.693-1.067-2.247-.602-.486-1.398-.753-2.24-.753-.903 0-1.769.317-2.377.87-.61.555-.932 1.294-.93 2.137l.007 5.623.004 3.568c-.883.429-1.494 1.108-1.777 1.982-.437 1.347-.089 3.082 1.063 5.304.758 1.462 1.667 2.741 2.103 3.324l.193 2.334C3.627 45.184 4.596 46 5.747 46l9.157-.01c1.105-.002 2.047-.753 2.19-1.747l.356-2.46c2.162-3.078 2.955-6.268 2.357-9.482-.326-1.75-1.299-2.666-2.057-3.126zm-1.543 12.018c-.066.092-.11.197-.125.306l-.373 2.579c-.053.368-.398.62-.807.62l-9.154-.012h-.001c-.426 0-.78-.276-.813-.662l-.205-2.463c-.01-.131-.059-.25-.14-.358C3.75 40.097-.93 33.648 2.86 32.21c.302-.115.498-.381.497-.678l-.013-9.527c-.001-1.158.955-1.737 1.911-1.737.954 0 1.909.578 1.91 1.733l.006 4.472c0 .414.372.738.812.738.042 0 .085-.003.128-.009.162-.023.338-.038.522-.038.687 0 1.49.21 2.105.983.152.192.397.297.65.297.072 0 .144-.008.215-.025.24-.058.542-.107.871-.107.718 0 1.566.235 2.19 1.129.126.18.339.29.573.299.825.027 2.742.355 3.192 2.772.417 2.24.225 5.246-2.222 8.68z" />
+            <rect width="8" height="8" x="1" stroke="#fff" stroke-width="1.5" rx="1" />
+            <path stroke="#fff" stroke-width="1.5" d="M1.802 22h1.277H1.8c-.442 0-.8-.358-.8-.8v-6.4c0-.442.358-.8.8-.8h6.4c.442 0 .8.358.8.8v6.4c0 .442-.358.8-.8.8h-.86" />
+            <path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M0 13.031L4.484 18 12 10" />
+            <path stroke="#fff" stroke-linecap="round" stroke-width="1.5" d="M14 18L32.001 18M14 4L32.001 4" />
+          </g>
+        </g>
+      </svg>
+      <p class="mt-3">2. 쪽지 보낼 부동산을 선택해주세요</p>
+    </div>
+    <div class="d-flex">
+      <button type="button" class="icon icon-close_grey">
+        <span hidden>닫기</span>
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  // Guide Close
+  function closeGuide() {
+    let el = document.querySelector('.guide');
+    el.remove();
+  }
+  $('#closeGuide').on('click', function () {
+    $(this).removeClass('show');
+  })
+</script>
+  <script>
+    // ui swiper
+    let touchstartY = 0;
+    let touchendY = 0;
+    let touchList = document.getElementById('touchbar');
+
+    touchList.addEventListener('touchstart', function (event) {
+      touchstartY = event.changedTouches[0].screenY;
+    }, false);
+    touchList.addEventListener('touchend', function (event) {
+      touchendY = event.changedTouches[0].screenY;
+      handleGesture();
+    }, false);
+
+    function handleGesture() {
+      let barClass = $('#expandup').hasClass('center');
+      let mapClass = $('#mapArea').hasClass('full');
+      // var offset = touchList.getBoundingClientRect();
+      // console.log(barClass);
+
+      if (touchendY < touchstartY && barClass && !mapClass) {
+        console.log('center Swiped up ' + touchendY);
+        $('.map').addClass('min');
+        $('#expandup').removeClass('center').addClass('full');
+        $('.map-search').addClass('hide');
+        $('.toggle-handle .icon-upbold_blue').hide();
+      }
+      else if (touchendY > touchstartY && barClass) {
+        console.log('center Swiped down ' + touchendY);
+        $('.map').addClass('full');
+        $('#expandup').removeClass('full center').addClass('bottom');
+        $('.map-position-button').addClass('bottom');
+        $('.fixed-slide, .fixed-bottom-button').removeClass('show');
+        $('.toggle-handle .icon-downbold_blue').hide();
+      }
+      else if (touchendY < touchstartY && !barClass && mapClass) {
+        console.log('bottom Swiped up ' + touchendY);
+        $('.map').removeClass('full');
+        $('#expandup').removeClass('bottom').addClass('center');
+        $('.map-position-button').removeClass('bottom');
+        $('.toggle-handle .icon').show();
+      }
+      else if (touchendY > touchstartY && !barClass && !mapClass) {
+        console.log('full Swiped down ' + touchendY);
+        $('.map').removeClass('min');
+        $('#expandup').removeClass('full').addClass('center');
+        $('.map-search').removeClass('hide');
+        $('.toggle-handle .icon-upbold_blue').show();
+      }
+
+    }
+
+    // ios click 이벤트 지연 문제 처리 함수
+    var clickEvent = (function () {
+      if ("ontouchstart" in document.documentElement === true) {
+        return "touchstart";
+      } else {
+        return "click";
+      }
+    })();
+
+    // list checkbox 선택시 버튼 슬라이드업
+    $(".custom-control-input").on("change", function (e) {
+      const isOn = e.currentTarget.checked;
+      if (isOn) {
+        $(".fixed-bottom-button, .fixed-slide").addClass("show");
+      } else {
+        $(".fixed-bottom-button, .fixed-slide").removeClass("show");
+      }
+    });
+
+    $("#sortDrop").on(clickEvent, function () {
+      $(".sort-toggle").toggleClass("toggled");
+      if ($(".sort-toggle").hasClass("toggled")) {
+        $(".sort-toggle")
+          .addClass("icon-up_dgrey")
+          .removeClass("icon-down_dgrey");
+      } else {
+        $(".sort-toggle")
+          .removeClass("icon-up_dgrey")
+          .addClass("icon-down_dgrey");
+      }
+    });
+    $(".dropdown-menu a").on(clickEvent, function (e) {
+      e.preventDefault();
+      var selected = $(this).text();
+      $(".sort-toggle")
+        .removeClass("toggled icon-up_dgrey")
+        .addClass("icon-down_dgrey");
+      $(".dropdown-toggle > span").text(selected);
+    });
+
+    function findAddr() {
+      swal({
+        title: "주소검색",
+        text: "주소가 확인되지 않습니다",
+        confirmButtonText: "확인",
+        confirmButtonColor: "#4dabf7",
+      });
+    }
+
+    // Popup profile close
+    $(".userthumb").on(clickEvent, function () {
+      $(".popup").addClass("show");
+    });
+    $(".popup .close").on(clickEvent, function () {
+      $(".popup").removeClass("show");
+    });
+
+    // Top drop edit menu
+    $('#dropMenu').on(clickEvent, function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (!status) {
+        $('.drop-menu').addClass('show');
+      } else {
+        $('.drop-menu').removeClass('show');
+      }
+    })
+    // close drop edit
+    $('main').on(clickEvent, function () {
+      let status = $('.drop-menu').hasClass('show');
+      if (status) $('.drop-menu').removeClass('show');
+    })
+    // 거리별 그룹선택
+    $('.range-select a').on('click', function () {
+      $('.drop-menu').removeClass('show');
+      $('#expand').addClass('show');
+      $('#expandup').addClass('active');
+      // checke item for range code....
+      $('main .custom-control-input').prop('checked', true); // demo
+    })
+
+    // map 클릭시 위치 지정 버튼 노출
+    $('.map').on('click', function () {
+      $('.map-position-button').addClass('show');
+    })
+    // 버튼 클릭시 show 제거
+    $('.map-position-button').on('click', function () {
+      $(this).removeClass('show');
+    })
+
+    // 가이드 표출
+    $('#guidePopup').on('click', function () {
+      $('.guide').addClass('show');
+    })
+  </script>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>부잇! - 쪽지 발송</title>
+    <meta name="description" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<!-- favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="favicon.ico">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<link href=".././css/styles.css?eb006a2360b74254a818" rel="stylesheet"></head>
+<body>
+
+  <div class="d-flex flex-column h-100">
+    <!-- 상단 고정바 -->
+    <header class="top-bar">
+      <nav class="d-flex align-items-center justify-content-between">
+        <div>
+          <button type="button" class="icon icon-prev_grey" onclick="history.back();">
+            <span class="invisible">뒤로가기</span>
+          </button>
+        </div>
+        <div class="text-center">
+          <h1>부동산으로 쪽지 발송</h1>
+        </div>
+        <div>&nbsp;</div>
+      </nav>
+    </header>
+
+    <main class="d-flex h-100 flex-column fixed fixed-chat group bg-chatblue">
+      <article class="chat-info">
+        <p><span>혁신도시</span> 금정부동산 외 98개</p>
+      </article>
+      <div class="container mt-3 chat-container">
+        <article class="chat-notice text-center">
+          부동산 의뢰외의 욕설, 비방, 불법판매등의 내용 전송시 이용에 제한이 있으니 유의바랍니다.
+        </article>
+        <article class="chat-box send">
+          안녕하세요?
+          혁신도시 대방상가 분양팀장 홍길동입니다.
+          잔여 상가 분양건에 대하여 최초분양가 대비 20% 할인분양을 하고 있으니
+          관심있으신 공인중개사분들께서는 연락주시기 바랍니다.
+          현재 12호실 남아 있으며 연락주시면 관련 자료 보내드리겠습니다.
+          010-0000-0000
+        </article>        
+        <article class="chat-box send">
+          debitis eligendi nesciunt fugit aut aspernatur voluptatum sunt omnis.
+        </article>
+        <article class="chat-box send">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt facere delectus praesentium. Sapiente, inventore. Natus odio eos laboriosam reiciendis iusto eum exercitationem laborum atque aperiam, fugiat hic accusantium quisquam! Labore esse perferendis repellendus neque 
+        </article>
+
+      </div>
+    </main>
+
+    <!-- 하단 고정 바  -->
+    <footer class="bottom-chat fixed-bottom">
+  <div class="container">
+    <nav class="d-flex align-items-center justify-content-between">
+      <div class="col-auto px-0">
+        <button type="button" class="icon icon-camera_grey" onclick="attach();">
+          <span hidden>카메라</span>
+        </button>
+        <button type="button" class="icon icon-photo_grey ml-2" onclick="attach();">
+          <span hidden>사진앨범</span>
+        </button>
+      </div>
+      <div class="col pr-0">
+        <div class="form-group position-relative mb-0">
+          <label for="chatInput" hidden>채팅입력</label>
+          <textarea class="form-control form-control-sm" id="chatInput" rows="1"  contenteditable="true"></textarea>
+          <button type="button" class="btn-text btn-text-in">보내기</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="attach" id="attachFile">
+    <section class="attach-bar px-3">
+      <button type="button" class="icon icon-plus_blue">
+        <span hidden>파일추가</span>
+      </button>
+      <button type="button" class="icon icon-upload_blue">
+        <span hidden>파일추가</span>
+      </button>
+    </section>
+    <section class="attach-thumb">
+      <div class="attach-thumb-item" style="background-image: url('../images/demo_profile.jpg');">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+      <div class="attach-thumb-item">
+        <i class="icon icon-delete_grey"></i>
+      </div>
+    </section>
+  </div>
+</footer>
+
+<script>
+  // ios 클릭이벤트 지연 문제 처리 함수
+  var clickEvent = (function () {
+    if ('ontouchstart' in document.documentElement === true) {
+      return 'touchstart';
+    } else {
+      return 'click';
+    }
+  })();
+
+  function attach() {
+    var state = document.getElementById("attachFile");
+    state.classList.toggle("show");
+  }
+
+  $(function(){
+    $('.chat-container').on(clickEvent, function(){ 
+      $('#attachFile').removeClass('show');
+    });
+
+    // 입력창 하단 포커싱
+    $("#chatInput").on('focus', function(){
+      $("body, html, .fixed-chat").animate({ scrollTop: $('.fixed-chat').height() }, 400);
+    });
+
+    // 엔터키 입력시 입력창 확장
+    $('#chatInput').keypress(function(e){
+      var key = e.which;
+      if (key == 13) {
+        $(".fixed-chat, .bottom-chat").addClass('expand');
+        $(this).addClass('expand');
+        $("body, html").animate({ scrollTop: $('.fixed-chat').height() }, 300);
+        // return false;
+      }
+    });
+    // 전송버튼 클릭시 입력창 원복 및 입력 내용 지우기
+    $('.btn-text-in').on('click', function(){
+      $(".fixed-chat, .bottom-chat").removeClass('expand');
+      $("#chatInput").removeClass('expand').val("");
+    })
+  })
+
+</script>
+
+  </div>
+<script src=".././js/index.bundle.js?eb006a2360b74254a818"></script></body>
+</html>
